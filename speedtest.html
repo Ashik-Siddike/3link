@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Speed Test - 3LINK Networks</title>
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+          colors: {
+            primary: '#0047BA',
+            'primary-dark': '#00358A',
+            'brand-blue': '#00D2FF',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Glowing gauge ring shadow */
+    .gauge-glow {
+      filter: drop-shadow(0px 0px 8px rgba(168, 85, 247, 0.4));
+    }
+    .needle-transition {
+      transition: transform 3.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+    }
+  </style>
+</head>
+<body class="bg-slate-900 font-sans text-slate-150 min-h-screen flex flex-col justify-between">
+
+  <!-- Desktop Top Header Navbar (Visible only on desktop) -->
+  <header class="hidden md:flex bg-slate-950 text-white border-b border-slate-800 px-8 py-4 justify-between items-center shadow-md select-none shrink-0 z-40">
+    <div class="flex items-center gap-2">
+      <svg class="w-7 h-7 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+      </svg>
+      <div class="flex items-baseline gap-0.5">
+        <span class="text-xl font-extrabold text-brand-blue tracking-tight">3</span>
+        <span class="text-xl font-black text-white tracking-wide">LINK</span>
+        <span class="text-[9px] uppercase tracking-wider text-slate-300 font-bold ml-1.5">Portal</span>
+      </div>
+    </div>
+    
+    <!-- Center navigation -->
+    <nav class="flex items-center gap-6 text-sm font-extrabold text-white/80">
+      <a href="dashboard.html" class="hover:text-white transition-colors">Home</a>
+      <a href="packages.html" class="hover:text-white transition-colors">Packages</a>
+      <a href="usage.html" class="hover:text-white transition-colors">Usage</a>
+      <a href="speedtest.html" class="text-white border-b-2 border-white pb-0.5">Speed Test</a>
+      <a href="support.html" class="hover:text-white transition-colors">Support</a>
+      <a href="streaming.html" class="hover:text-white transition-colors">Streaming</a>
+      <a href="shop.html" class="hover:text-white transition-colors">Shop</a>
+      <a href="history.html" class="hover:text-white transition-colors">History</a>
+    </nav>
+    
+    <!-- Right side -->
+    <div class="flex items-center gap-6">
+      <a href="notifications.html" class="relative text-white/80 hover:text-white p-2">
+        <i data-lucide="bell" class="w-5 h-5"></i>
+        <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full"></span>
+      </a>
+      <a href="profile.html" class="flex items-center gap-2.5 text-white/80 hover:text-white">
+        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=80&h=80" class="w-8 h-8 rounded-full border border-white/20 object-cover">
+        <span class="text-xs font-bold">Rakib Hasan</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Responsive Container -->
+  <div class="w-full flex-grow flex flex-col bg-[#070B19] min-h-screen pb-20 md:pb-6 relative">
+    
+    <!-- Top Header (Mobile only) -->
+    <div class="pt-6 px-6 md:hidden">
+      <!-- Status Bar -->
+      <div class="w-full flex justify-between items-center text-xs text-slate-400 font-semibold mb-6">
+        <div>9:41</div>
+        <div class="flex items-center gap-1.5">
+          <i data-lucide="signal" class="w-3.5 h-3.5 text-slate-400"></i>
+          <i data-lucide="wifi" class="w-3.5 h-3.5 text-slate-400"></i>
+          <i data-lucide="battery" class="w-4 h-4 text-slate-400"></i>
+        </div>
+      </div>
+
+      <!-- Navigation Row -->
+      <div class="flex items-center gap-4 text-white">
+        <a href="dashboard.html" class="p-1 hover:bg-white/10 rounded-lg transition-colors">
+          <i data-lucide="arrow-left" class="w-6 h-6"></i>
+        </a>
+        <h2 class="text-xl font-extrabold tracking-tight">Speed Test</h2>
+      </div>
+    </div>
+
+    <!-- Main Content Container -->
+    <div class="max-w-6xl mx-auto w-full px-6 mt-6 md:mt-8 z-10 flex-grow flex flex-col justify-center space-y-6">
+      
+      <!-- Desktop Header (Desktop only) -->
+      <div class="hidden md:flex justify-between items-center mb-2 text-white">
+        <div>
+          <h2 class="text-2xl font-black text-white tracking-tight">Speed Test</h2>
+          <p class="text-sm text-slate-400 font-semibold mt-1">Verify your real-time download and upload speeds with nearest latency servers</p>
+        </div>
+        <a href="dashboard.html" class="flex items-center gap-2 px-4 py-2 border border-slate-800 hover:bg-slate-900 text-slate-350 rounded-xl text-xs font-bold transition-all duration-150">
+          <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Dashboard
+        </a>
+      </div>
+
+      <!-- Grid layout for desktop split -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        
+        <!-- Left: Gauge Representation -->
+        <div class="flex flex-col items-center space-y-6">
+          
+          <!-- Speedometer Gauge -->
+          <div class="relative w-72 h-72 flex items-center justify-center">
+            <!-- SVG Gauge Dial -->
+            <svg class="w-full h-full transform -rotate-90 gauge-glow" viewBox="0 0 200 200">
+              <defs>
+                <linearGradient id="gauge-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#00D2FF" />
+                  <stop offset="50%" stop-color="#A855F7" />
+                  <stop offset="100%" stop-color="#EF4444" />
+                </linearGradient>
+              </defs>
+              
+              <!-- Outer Gray Track -->
+              <circle cx="100" cy="100" r="80" stroke="#1E293B" stroke-width="8" fill="transparent"
+                      stroke-dasharray="377 500" stroke-linecap="round" />
+                      
+              <!-- Glowing Active Neon Track -->
+              <circle id="gauge-progress" cx="100" cy="100" r="80" stroke="url(#gauge-grad)" stroke-width="8" fill="transparent"
+                      stroke-dasharray="0 500" stroke-linecap="round" class="transition-all duration-[3500ms] cubic-bezier(0.25, 0.1, 0.25, 1)" />
+            </svg>
+
+            <!-- Center Display Text -->
+            <div class="absolute text-center select-none flex flex-col items-center">
+              <span class="text-xs font-bold uppercase tracking-widest text-slate-400">Download</span>
+              <span id="speed-number" class="text-5xl font-black text-white mt-1 tracking-tight">0.00</span>
+              <span class="text-xs font-bold uppercase tracking-wider text-slate-400 mt-1">Mbps</span>
+            </div>
+
+            <!-- Needle -->
+            <div id="needle" class="absolute inset-0 flex items-center justify-center needle-transition" style="transform: rotate(-120deg);">
+              <div class="w-full h-full relative">
+                <!-- Pin point -->
+                <div class="absolute top-[48.5%] left-[48.5%] w-3 h-3 bg-white rounded-full shadow-[0_0_10px_#fff] z-20"></div>
+                <!-- Needle pointer -->
+                <div class="absolute bottom-[50%] left-[49.5%] w-1 h-[76px] bg-gradient-to-t from-white to-[#00D2FF] rounded-full shadow-[0_0_10px_#00D2FF]"></div>
+              </div>
+            </div>
+
+            <!-- Dial Tick Labels -->
+            <div class="absolute inset-0 pointer-events-none text-[10px] font-black text-slate-500">
+              <span class="absolute bottom-[22%] left-[28%]">0</span>
+              <span class="absolute top-[46%] left-[18%]">10</span>
+              <span class="absolute top-[26%] left-[26%]">20</span>
+              <span class="absolute top-[17%] left-[41%]">30</span>
+              <span class="absolute top-[17%] right-[41%]">50</span>
+              <span class="absolute top-[26%] right-[26%]">75</span>
+              <span class="absolute top-[46%] right-[18%]">100</span>
+              <span class="absolute bottom-[22%] right-[28%]">150</span>
+            </div>
+          </div>
+
+          <!-- Start Test Button (Mobile view / below dial on desktop) -->
+          <div class="w-full max-w-sm px-4">
+            <button id="start-btn" onclick="runSpeedTest()" class="w-full py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-2xl shadow-lg shadow-blue-500/20 active:scale-[0.99] transition-all text-sm uppercase tracking-widest focus:outline-none">
+              Start Test
+            </button>
+          </div>
+        </div>
+
+        <!-- Right: Speed Stats & Connection Details -->
+        <div class="space-y-6">
+          <div class="bg-slate-900/60 border border-slate-800/80 rounded-3xl p-6 space-y-4">
+            <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest">Test Results</h3>
+            
+            <!-- Stats Cards Grid -->
+            <div class="grid grid-cols-3 gap-3.5">
+              <!-- Download -->
+              <div class="bg-slate-950/40 border border-slate-800/80 rounded-2xl p-4 flex flex-col items-center gap-1.5 text-center">
+                <i data-lucide="download" class="w-5.5 h-5.5 text-blue-400"></i>
+                <span class="text-[9px] font-bold text-slate-400 uppercase tracking-wider">Download</span>
+                <span id="download-val" class="text-sm font-extrabold text-white">-- Mbps</span>
+              </div>
+              <!-- Upload -->
+              <div class="bg-slate-950/40 border border-slate-800/80 rounded-2xl p-4 flex flex-col items-center gap-1.5 text-center">
+                <i data-lucide="upload" class="w-5.5 h-5.5 text-purple-400"></i>
+                <span class="text-[9px] font-bold text-slate-400 uppercase tracking-wider">Upload</span>
+                <span id="upload-val" class="text-sm font-extrabold text-white">-- Mbps</span>
+              </div>
+              <!-- Ping -->
+              <div class="bg-slate-950/40 border border-slate-800/80 rounded-2xl p-4 flex flex-col items-center gap-1.5 text-center">
+                <i data-lucide="activity" class="w-5.5 h-5.5 text-orange-400"></i>
+                <span class="text-[9px] font-bold text-slate-400 uppercase tracking-wider">Ping</span>
+                <span id="ping-val" class="text-sm font-extrabold text-white">-- ms</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Connection Info Card -->
+          <div class="bg-slate-900/60 border border-slate-800/80 rounded-3xl p-6 divide-y divide-slate-800 text-xs font-bold text-slate-350">
+            <div class="flex justify-between py-3">
+              <span class="text-slate-450 font-medium">ISP Provider</span>
+              <span class="text-white">3LINK Networks Ltd.</span>
+            </div>
+            <div class="flex justify-between py-3">
+              <span class="text-slate-450 font-medium">Server Location</span>
+              <span class="text-white">Jessore, Bangladesh</span>
+            </div>
+            <div class="flex justify-between py-3">
+              <span class="text-slate-450 font-medium">Client IP Address</span>
+              <span class="text-white">103.145.224.45</span>
+            </div>
+            <div class="flex justify-between py-3">
+              <span class="text-slate-450 font-medium">Connection Type</span>
+              <span class="text-white flex items-center gap-1.5">
+                <span class="w-2 h-2 bg-green-500 rounded-full"></span>
+                Fiber Optic (FTTH)
+              </span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Space Filler -->
+    <div class="h-6"></div>
+
+    <!-- Mobile Bottom Navigation Bar (Visible on mobile only) -->
+    <div class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md bg-slate-950 border-t border-slate-800 px-6 py-2.5 flex justify-between items-center z-40 md:hidden">
+      <a href="dashboard.html" class="flex flex-col items-center gap-1 text-slate-400 hover:text-white">
+        <i data-lucide="home" class="w-5.5 h-5.5"></i>
+        <span class="text-[10px] font-bold">Home</span>
+      </a>
+      <a href="packages.html" class="flex flex-col items-center gap-1 text-slate-400 hover:text-white">
+        <i data-lucide="box" class="w-5.5 h-5.5"></i>
+        <span class="text-[10px] font-bold">Packages</span>
+      </a>
+      <a href="usage.html" class="flex flex-col items-center gap-1 text-slate-400 hover:text-white">
+        <i data-lucide="trending-up" class="w-5.5 h-5.5"></i>
+        <span class="text-[10px] font-bold">Usage</span>
+      </a>
+      <a href="support.html" class="flex flex-col items-center gap-1 text-slate-400 hover:text-white">
+        <i data-lucide="help-circle" class="w-5.5 h-5.5"></i>
+        <span class="text-[10px] font-bold">Support</span>
+      </a>
+      <a href="profile.html" class="flex flex-col items-center gap-1 text-slate-400 hover:text-white">
+        <i data-lucide="user" class="w-5.5 h-5.5"></i>
+        <span class="text-[10px] font-bold">Profile</span>
+      </a>
+    </div>
+
+  </div>
+
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Speed Test Script
+    let isRunning = false;
+
+    function runSpeedTest() {
+      if (isRunning) return;
+      isRunning = true;
+
+      const startBtn = document.getElementById('start-btn');
+      const speedNumber = document.getElementById('speed-number');
+      const needle = document.getElementById('needle');
+      const progressRing = document.getElementById('gauge-progress');
+
+      const dlVal = document.getElementById('download-val');
+      const ulVal = document.getElementById('upload-val');
+      const pingVal = document.getElementById('ping-val');
+
+      // 1. Reset values
+      startBtn.innerText = "Testing...";
+      startBtn.classList.add('opacity-50', 'cursor-not-allowed');
+      speedNumber.innerText = "0.00";
+      needle.style.transform = 'rotate(-120deg)';
+      progressRing.style.strokeDasharray = '0 500';
+      dlVal.innerText = "-- Mbps";
+      ulVal.innerText = "-- Mbps";
+      pingVal.innerText = "-- ms";
+
+      // 2. Simulated Phase 1: Ping (Takes 0.8 seconds)
+      setTimeout(() => {
+        pingVal.innerText = "7 ms";
+        
+        // 3. Simulated Phase 2: Download Test (Takes 1.5 seconds)
+        let dl = 0;
+        const dlInterval = setInterval(() => {
+          dl += (Math.random() * 8) + 2;
+          if (dl >= 51.32) {
+            dl = 51.32;
+            clearInterval(dlInterval);
+          }
+          speedNumber.innerText = dl.toFixed(2);
+          
+          // Animate needle: range from -120deg to 120deg
+          // 51.32 Mbps out of 150 Max = ~34% of dial scale
+          // Rotation = -120 + (240 * 0.34) = -38deg
+          let rot = -120 + (240 * (dl / 150));
+          needle.style.transform = `rotate(${rot}deg)`;
+          
+          // Arc dasharray max is ~377 (since r=80, 2*pi*80 = 502, 3/4 arc is 377)
+          let strokeDash = 377 * (dl / 150);
+          progressRing.style.strokeDasharray = `${strokeDash} 500`;
+        }, 50);
+
+        setTimeout(() => {
+          dlVal.innerText = "51.32 Mbps";
+
+          // 4. Simulated Phase 3: Upload Test (Takes 1.5 seconds)
+          let ul = 0;
+          // Change text to show upload in center gauge temporarily
+          const centerLabel = document.querySelector('.absolute.text-center.select-none span:first-child');
+          centerLabel.innerText = "Upload";
+          
+          const ulInterval = setInterval(() => {
+            ul += (Math.random() * 3) + 0.5;
+            if (ul >= 12.78) {
+              ul = 12.78;
+              clearInterval(ulInterval);
+            }
+            speedNumber.innerText = ul.toFixed(2);
+            
+            // 12.78 Mbps out of 150 Max = ~8.5% of scale
+            let rot = -120 + (240 * (ul / 150));
+            needle.style.transform = `rotate(${rot}deg)`;
+            
+            let strokeDash = 377 * (ul / 150);
+            progressRing.style.strokeDasharray = `${strokeDash} 500`;
+          }, 60);
+
+          setTimeout(() => {
+            ulVal.innerText = "12.78 Mbps";
+            
+            // Finish: Return UI to show final download speed in center
+            centerLabel.innerText = "Download";
+            speedNumber.innerText = "51.32";
+            
+            let rot = -120 + (240 * (51.32 / 150));
+            needle.style.transform = `rotate(${rot}deg)`;
+            let strokeDash = 377 * (51.32 / 150);
+            progressRing.style.strokeDasharray = `${strokeDash} 500`;
+
+            startBtn.innerText = "Test Again";
+            startBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+            isRunning = false;
+          }, 1500);
+
+        }, 1600);
+
+      }, 800);
+    }
+  </script>
+
+  <!-- Demo navigator widget -->
+  <script src="demo-nav.js"></script>
+</body>
+</html>

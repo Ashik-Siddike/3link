@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - 3LINK Networks</title>
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+          colors: {
+            primary: '#0047BA',
+            'primary-dark': '#00358A',
+            'brand-blue': '#00D2FF',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-100 font-sans text-slate-800 min-h-screen flex flex-col">
+
+  <!-- Desktop Top Header Navbar (Visible only on desktop) -->
+  <header class="hidden md:flex bg-primary text-white border-b border-primary-dark px-8 py-4 justify-between items-center shadow-md select-none shrink-0 z-40">
+    <div class="flex items-center gap-2">
+      <svg class="w-7 h-7 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+      </svg>
+      <div class="flex items-baseline gap-0.5">
+        <span class="text-xl font-extrabold text-brand-blue tracking-tight">3</span>
+        <span class="text-xl font-black text-white tracking-wide">LINK</span>
+        <span class="text-[9px] uppercase tracking-wider text-slate-300 font-bold ml-1.5">Portal</span>
+      </div>
+    </div>
+    
+    <!-- Center navigation -->
+    <nav class="flex items-center gap-6 text-sm font-extrabold text-white/80">
+      <a href="dashboard.html" class="text-white border-b-2 border-white pb-0.5">Home</a>
+      <a href="packages.html" class="hover:text-white transition-colors">Packages</a>
+      <a href="usage.html" class="hover:text-white transition-colors">Usage</a>
+      <a href="speedtest.html" class="hover:text-white transition-colors">Speed Test</a>
+      <a href="support.html" class="hover:text-white transition-colors">Support</a>
+      <a href="streaming.html" class="hover:text-white transition-colors">Streaming</a>
+      <a href="shop.html" class="hover:text-white transition-colors">Shop</a>
+      <a href="history.html" class="hover:text-white transition-colors">History</a>
+    </nav>
+    
+    <!-- Right side -->
+    <div class="flex items-center gap-6">
+      <a href="notifications.html" class="relative text-white/80 hover:text-white p-2">
+        <i data-lucide="bell" class="w-5 h-5"></i>
+        <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full"></span>
+      </a>
+      <a href="profile.html" class="flex items-center gap-2.5 text-white/80 hover:text-white">
+        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=80&h=80" class="w-8 h-8 rounded-full border border-white/20 object-cover">
+        <span class="text-xs font-bold">Rakib Hasan</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Mobile View Container Wrapping layout (occupies full width) -->
+  <div class="w-full flex-grow flex flex-col bg-slate-50 min-h-screen pb-20 md:pb-6 relative">
+    
+    <!-- Top Blue Header Section (Mobile only) -->
+    <div class="bg-primary pt-4 pb-16 px-6 relative rounded-b-[32px] shadow-lg shadow-primary/10 md:hidden">
+      <!-- Status Bar -->
+      <div class="w-full flex justify-between items-center text-xs text-white/80 font-semibold mb-6">
+        <div>9:41</div>
+        <div class="flex items-center gap-1.5">
+          <i data-lucide="signal" class="w-3.5 h-3.5"></i>
+          <i data-lucide="wifi" class="w-3.5 h-3.5"></i>
+          <i data-lucide="battery" class="w-4 h-4"></i>
+        </div>
+      </div>
+
+      <!-- User Info Row -->
+      <div class="flex justify-between items-center">
+        <div class="flex items-center gap-3">
+          <div class="relative">
+            <a href="profile.html">
+              <img 
+                src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=120&h=120" 
+                alt="Rakib Hasan" 
+                class="w-12 h-12 rounded-full border-2 border-white/20 object-cover"
+              >
+            </a>
+            <span class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-primary rounded-full"></span>
+          </div>
+          <div>
+            <h4 class="text-sm font-semibold text-white/70">Hello,</h4>
+            <h2 class="text-base font-extrabold text-white leading-tight">Rakib Hasan</h2>
+            <p class="text-[10px] text-white/60 font-semibold tracking-wider uppercase mt-0.5">ID: 3LINK-10321</p>
+          </div>
+        </div>
+        <!-- Notification icon -->
+        <a href="notifications.html" class="relative p-2.5 bg-white/10 hover:bg-white/20 text-white rounded-full transition-colors">
+          <i data-lucide="bell" class="w-5 h-5"></i>
+          <span class="absolute top-1.5 right-1.5 w-2.5 h-2.5 bg-red-500 rounded-full border-2 border-primary"></span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Main Responsive Layout Wrapper -->
+    <div class="max-w-6xl mx-auto w-full px-6 -mt-10 md:mt-8 z-10 flex-grow space-y-5">
+      
+      <!-- Desktop Header Greeting (Visible only on desktop) -->
+      <div class="hidden md:flex justify-between items-center mb-4">
+        <div>
+          <h2 class="text-2xl font-black text-slate-900 tracking-tight">Welcome Back, Rakib Hasan!</h2>
+          <p class="text-sm text-slate-500 font-semibold mt-1">Manage your home connection and smart subscriptions</p>
+        </div>
+        <div class="text-right">
+          <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block">Client ID</span>
+          <span class="text-sm font-extrabold text-slate-700 block">3LINK-10321</span>
+        </div>
+      </div>
+
+      <!-- Grid layout for desktop splitting -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
+        
+        <!-- Left Dashboard Column: Balance & Connection Status -->
+        <div class="space-y-6 md:col-span-1">
+          <!-- Balance Card -->
+          <div class="bg-white rounded-3xl p-6 shadow-md shadow-slate-100 flex flex-col justify-between gap-5 border border-slate-100">
+            <div class="flex justify-between items-start">
+              <div>
+                <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Current Balance</span>
+                <div class="text-3xl font-black text-slate-900 tracking-tight mt-1.5 flex items-baseline">
+                  <span class="text-2xl font-bold mr-1">৳</span>883.24
+                </div>
+              </div>
+              <div class="w-12 h-12 bg-blue-50 text-primary rounded-2xl flex items-center justify-center shrink-0">
+                <i data-lucide="wifi" class="w-6 h-6"></i>
+              </div>
+            </div>
+            <a href="recharge.html" class="w-full py-3.5 bg-primary hover:bg-primary-dark text-white font-bold rounded-2xl text-center shadow-md shadow-primary/20 active:scale-[0.99] transition-all duration-150 text-sm">
+              Recharge Now
+            </a>
+          </div>
+
+          <!-- Connection Status Card Grid / Stacked on desktop -->
+          <div class="grid grid-cols-2 md:grid-cols-1 gap-4">
+            <!-- Left: Status -->
+            <div class="bg-white rounded-2xl p-4.5 shadow-sm border border-slate-100 flex items-center gap-3">
+              <div class="w-10 h-10 bg-green-50 text-green-600 rounded-xl flex items-center justify-center shrink-0">
+                <i data-lucide="wifi" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <span class="text-[9px] font-bold text-slate-400 uppercase tracking-wider block">Internet Status</span>
+                <span class="text-sm font-extrabold text-green-600">Connected</span>
+              </div>
+            </div>
+            <!-- Right: Package -->
+            <div class="bg-white rounded-2xl p-4.5 shadow-sm border border-slate-100 flex items-center gap-3">
+              <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center shrink-0">
+                <i data-lucide="box" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <span class="text-[9px] font-bold text-slate-400 uppercase tracking-wider block">Active Package</span>
+                <span class="text-xs font-extrabold text-slate-800 line-clamp-1">Basic 50Mbps</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Dashboard Column: Quick Access -->
+        <div class="md:col-span-2 space-y-6">
+          <div>
+            <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Quick Access</h3>
+            <div class="grid grid-cols-4 md:grid-cols-4 gap-y-8 gap-x-4 bg-white rounded-3xl p-6 shadow-sm border border-slate-100">
+              
+              <!-- Recharge -->
+              <a href="recharge.html" class="flex flex-col items-center gap-2 group">
+                <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center group-hover:scale-105 active:scale-95 transition-transform shrink-0">
+                  <i data-lucide="smartphone" class="w-6 h-6"></i>
+                </div>
+                <span class="text-[11px] font-bold text-slate-700">Recharge</span>
+              </a>
+
+              <!-- Packages -->
+              <a href="packages.html" class="flex flex-col items-center gap-2 group">
+                <div class="w-12 h-12 bg-purple-50 text-purple-600 rounded-2xl flex items-center justify-center group-hover:scale-105 active:scale-95 transition-transform shrink-0">
+                  <i data-lucide="shopping-bag" class="w-6 h-6"></i>
+                </div>
+                <span class="text-[11px] font-bold text-slate-700">Packages</span>
+              </a>
+
+              <!-- Speed Test -->
+              <a href="speedtest.html" class="flex flex-col items-center gap-2 group">
+                <div class="w-12 h-12 bg-green-50 text-green-600 rounded-2xl flex items-center justify-center group-hover:scale-105 active:scale-95 transition-transform shrink-0">
+                  <i data-lucide="zap" class="w-6 h-6"></i>
+                </div>
+                <span class="text-[11px] font-bold text-slate-700">Speed Test</span>
+              </a>
+
+              <!-- Support -->
+              <a href="support.html" class="flex flex-col items-center gap-2 group">
+                <div class="w-12 h-12 bg-red-50 text-red-600 rounded-2xl flex items-center justify-center group-hover:scale-105 active:scale-95 transition-transform shrink-0">
+                  <i data-lucide="message-square" class="w-6 h-6"></i>
+                </div>
+                <span class="text-[11px] font-bold text-slate-700">Support</span>
+              </a>
+
+              <!-- Streaming -->
+              <a href="streaming.html" class="flex flex-col items-center gap-2 group">
+                <div class="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center group-hover:scale-105 active:scale-95 transition-transform shrink-0">
+                  <i data-lucide="play-circle" class="w-6 h-6"></i>
+                </div>
+                <span class="text-[11px] font-bold text-slate-700">Streaming</span>
+              </a>
+
+              <!-- Shop -->
+              <a href="shop.html" class="flex flex-col items-center gap-2 group">
+                <div class="w-12 h-12 bg-rose-50 text-rose-600 rounded-2xl flex items-center justify-center group-hover:scale-105 active:scale-95 transition-transform shrink-0">
+                  <i data-lucide="store" class="w-6 h-6"></i>
+                </div>
+                <span class="text-[11px] font-bold text-slate-700">Shop</span>
+              </a>
+
+              <!-- History -->
+              <a href="history.html" class="flex flex-col items-center gap-2 group">
+                <div class="w-12 h-12 bg-teal-50 text-teal-600 rounded-2xl flex items-center justify-center group-hover:scale-105 active:scale-95 transition-transform shrink-0">
+                  <i data-lucide="file-text" class="w-6 h-6"></i>
+                </div>
+                <span class="text-[11px] font-bold text-slate-700">History</span>
+              </a>
+
+              <!-- More -->
+              <button onclick="alert('More features coming soon!')" class="flex flex-col items-center gap-2 group w-full focus:outline-none">
+                <div class="w-12 h-12 bg-slate-100 text-slate-500 rounded-2xl flex items-center justify-center group-hover:scale-105 active:scale-95 transition-transform shrink-0">
+                  <i data-lucide="grid" class="w-6 h-6"></i>
+                </div>
+                <span class="text-[11px] font-bold text-slate-700">More</span>
+              </button>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Mobile Bottom Navigation Bar (Visible on mobile only) -->
+    <div class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md bg-white border-t border-slate-100 px-6 py-2.5 flex justify-between items-center z-40 md:hidden">
+      
+      <!-- Home (Active) -->
+      <a href="dashboard.html" class="flex flex-col items-center gap-1 text-primary focus:outline-none">
+        <i data-lucide="home" class="w-5.5 h-5.5"></i>
+        <span class="text-[10px] font-extrabold">Home</span>
+      </a>
+
+      <!-- Packages -->
+      <a href="packages.html" class="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-600 transition-colors">
+        <i data-lucide="box" class="w-5.5 h-5.5"></i>
+        <span class="text-[10px] font-bold">Packages</span>
+      </a>
+
+      <!-- Usage -->
+      <a href="usage.html" class="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-600 transition-colors">
+        <i data-lucide="trending-up" class="w-5.5 h-5.5"></i>
+        <span class="text-[10px] font-bold">Usage</span>
+      </a>
+
+      <!-- Support -->
+      <a href="support.html" class="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-600 transition-colors">
+        <i data-lucide="help-circle" class="w-5.5 h-5.5"></i>
+        <span class="text-[10px] font-bold">Support</span>
+      </a>
+
+      <!-- Profile -->
+      <a href="profile.html" class="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-600 transition-colors">
+        <i data-lucide="user" class="w-5.5 h-5.5"></i>
+        <span class="text-[10px] font-bold">Profile</span>
+      </a>
+
+    </div>
+
+  </div>
+
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Load dynamic balance from localStorage
+    let currentBalance = parseFloat(localStorage.getItem('balance')) || 883.24;
+    
+    // Update the balance elements on the page
+    const balanceValEl = document.querySelector('.text-3xl.font-black');
+    if (balanceValEl) {
+      balanceValEl.innerHTML = `<span class="text-2xl font-bold mr-1">৳</span>${currentBalance.toFixed(2)}`;
+    }
+
+    // Check for success parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('recharge') === 'success') {
+      const amount = urlParams.get('amount') || '500';
+      
+      // Inject success toast dynamically
+      const toast = document.createElement('div');
+      toast.className = 'fixed top-6 left-1/2 -translate-x-1/2 w-[90%] max-w-sm bg-green-500 text-white rounded-2xl p-4 shadow-xl z-50 flex items-center gap-3 animate-bounce transition-all duration-300';
+      toast.innerHTML = `
+        <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center shrink-0">
+          <i data-lucide="check" class="w-5 h-5 text-white"></i>
+        </div>
+        <div class="flex-grow">
+          <h4 class="font-bold text-sm">Recharge Successful</h4>
+          <p class="text-xs text-white/90">৳ ${amount} added to your account</p>
+        </div>
+      `;
+      document.body.appendChild(toast);
+      lucide.createIcons();
+
+      // Clear query params without reloading
+      window.history.replaceState({}, document.title, window.location.pathname);
+
+      // Fade out toast after 4 seconds
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translate(-50%, -20px)';
+        setTimeout(() => toast.remove(), 300);
+      }, 4000);
+    }
+  </script>
+
+  <!-- Demo navigator widget -->
+  <script src="demo-nav.js"></script>
+</body>
+</html>

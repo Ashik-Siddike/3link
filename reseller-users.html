@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Management - 3LINK Networks</title>
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+          colors: {
+            primary: '#0047BA',
+            'primary-dark': '#00358A',
+            'brand-blue': '#00D2FF',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-100 font-sans text-slate-800 min-h-screen flex flex-col">
+
+  <!-- Desktop Top Header Navbar (Visible only on desktop - Reseller Portal) -->
+  <header class="hidden md:flex bg-primary text-white border-b border-primary-dark px-8 py-4 justify-between items-center shadow-md select-none shrink-0 z-40">
+    <div class="flex items-center gap-2">
+      <svg class="w-7 h-7 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+      </svg>
+      <div class="flex items-baseline gap-0.5">
+        <span class="text-xl font-extrabold text-brand-blue tracking-tight">3</span>
+        <span class="text-xl font-black text-white tracking-wide">LINK</span>
+        <span class="text-[9px] uppercase tracking-wider text-slate-300 font-bold ml-1.5">Reseller</span>
+      </div>
+    </div>
+    
+    <!-- Center navigation -->
+    <nav class="flex items-center gap-6 text-sm font-extrabold text-white/80">
+      <a href="reseller-dashboard.html" class="hover:text-white transition-colors">Dashboard</a>
+      <a href="reseller-users.html" class="text-white border-b-2 border-white pb-0.5">Users</a>
+      <a href="#" onclick="alert('Client recharge portal simulated in Reseller-Users list (Quick action).')" class="hover:text-white transition-colors">Recharge</a>
+      <a href="#" onclick="alert('Reports generator coming soon.')" class="hover:text-white transition-colors">Reports</a>
+      <a href="index.html" class="hover:text-white transition-colors">Portal Select</a>
+    </nav>
+    
+    <!-- Right side -->
+    <div class="flex items-center gap-6">
+      <a href="#" onclick="alert('No new reseller alerts.')" class="relative text-white/80 hover:text-white p-2">
+        <i data-lucide="bell" class="w-5 h-5"></i>
+        <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full"></span>
+      </a>
+      <div class="flex items-center gap-2.5 text-white/80">
+        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=80&h=80" class="w-8 h-8 rounded-full border border-white/20 object-cover">
+        <span class="text-xs font-bold">Reseller Agent</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Responsive Screen Container -->
+  <div class="w-full flex-grow flex flex-col bg-slate-50 min-h-screen pb-20 md:pb-6 relative">
+    
+    <!-- Top Blue Header Section (Mobile only) -->
+    <div class="bg-primary pt-4 pb-12 px-6 relative rounded-b-[32px] shadow-lg shadow-primary/10 md:hidden">
+      <!-- Status Bar -->
+      <div class="w-full flex justify-between items-center text-xs text-white/80 font-semibold mb-6">
+        <div>9:41</div>
+        <div class="flex items-center gap-1.5">
+          <i data-lucide="signal" class="w-3.5 h-3.5"></i>
+          <i data-lucide="wifi" class="w-3.5 h-3.5"></i>
+          <i data-lucide="battery" class="w-4 h-4"></i>
+        </div>
+      </div>
+
+      <!-- Navigation Row -->
+      <div class="flex items-center gap-4 text-white">
+        <a href="reseller-dashboard.html" class="p-1 hover:bg-white/10 rounded-lg transition-colors">
+          <i data-lucide="arrow-left" class="w-6 h-6"></i>
+        </a>
+        <h2 class="text-xl font-extrabold tracking-tight">User Management</h2>
+      </div>
+    </div>
+
+    <!-- Main Content Wrapper -->
+    <div class="max-w-6xl mx-auto w-full px-6 -mt-8 md:mt-8 z-10 flex-grow flex flex-col gap-4">
+      
+      <!-- Desktop Header Row (Visible only on desktop) -->
+      <div class="hidden md:flex justify-between items-center mb-4">
+        <div>
+          <h2 class="text-2xl font-black text-slate-900 tracking-tight">User Management</h2>
+          <p class="text-sm text-slate-500 font-semibold mt-1">Review active connections, client status, and add new client accounts</p>
+        </div>
+        <div>
+          <!-- Add User Trigger (Desktop) -->
+          <button onclick="openAddUserModal()" class="px-5 py-3 bg-primary hover:bg-primary-dark text-white rounded-2xl shadow-md transition-all font-bold text-sm flex items-center gap-2 focus:outline-none">
+            <i data-lucide="plus" class="w-5 h-5"></i>
+            <span>Add New User</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Tab Header Switcher -->
+      <div class="bg-white rounded-2xl p-1.5 shadow-md flex border border-slate-100 text-center text-sm max-w-md">
+        <button id="tab-all" onclick="filterUsers('all')" class="w-1/3 py-2.5 font-extrabold rounded-xl transition-all duration-200 bg-primary text-white shadow-sm focus:outline-none">
+          All Users
+        </button>
+        <button id="tab-online" onclick="filterUsers('online')" class="w-1/3 py-2.5 font-bold rounded-xl transition-all duration-200 text-slate-500 hover:text-slate-800 hover:bg-slate-50 focus:outline-none">
+          Online
+        </button>
+        <button id="tab-offline" onclick="filterUsers('offline')" class="w-1/3 py-2.5 font-bold rounded-xl transition-all duration-200 text-slate-500 hover:text-slate-800 hover:bg-slate-50 focus:outline-none">
+          Offline
+        </button>
+      </div>
+
+      <!-- User List Area (Grid on desktop: grid-cols-3) -->
+      <div id="users-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 py-2 overflow-y-auto no-scrollbar">
+        <!-- Dynamic list injected here -->
+      </div>
+
+    </div>
+
+    <!-- Add User Button (Mobile only) -->
+    <div class="px-6 pb-6 pt-3 md:hidden">
+      <button onclick="openAddUserModal()" class="w-full py-4 bg-primary hover:bg-primary-dark text-white font-bold rounded-2xl flex items-center justify-center gap-2 shadow-lg shadow-primary/20 active:scale-[0.99] transition-all text-sm focus:outline-none">
+        <i data-lucide="plus" class="w-5 h-5"></i>
+        Add User
+      </button>
+    </div>
+
+    <!-- Add User Modal -->
+    <div id="add-user-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm hidden flex items-center md:items-center justify-center p-4">
+      <div class="bg-white rounded-3xl w-full max-w-md p-6 space-y-6 shadow-2xl animate-slide-up">
+        <div class="flex justify-between items-center">
+          <h3 class="text-lg font-extrabold text-slate-900">Add New User</h3>
+          <button onclick="closeAddUserModal()" class="text-slate-400 hover:text-slate-600 p-1 hover:bg-slate-50 rounded-full focus:outline-none">
+            <i data-lucide="x" class="w-6 h-6"></i>
+          </button>
+        </div>
+        
+        <form id="add-user-form" onsubmit="addUser(event)" class="space-y-4">
+          <div>
+            <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">User Client ID</label>
+            <input type="text" id="user-id" placeholder="e.g. 3LINK-10450" class="w-full px-4 py-3.5 bg-slate-50 border border-slate-200 rounded-2xl text-slate-900 focus:outline-none focus:border-primary focus:bg-white transition-all font-semibold text-sm" required>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Speed Package</label>
+            <select id="user-speed" class="w-full px-4 py-3.5 bg-slate-50 border border-slate-200 rounded-2xl text-slate-900 focus:outline-none focus:border-primary focus:bg-white transition-all font-semibold text-sm">
+              <option value="102Mbps">102 Mbps</option>
+              <option value="201Mbps">201 Mbps</option>
+              <option value="567Mbps">567 Mbps</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Initial Status</label>
+            <select id="user-status" class="w-full px-4 py-3.5 bg-slate-50 border border-slate-200 rounded-2xl text-slate-900 focus:outline-none focus:border-primary focus:bg-white transition-all font-semibold text-sm">
+              <option value="Active">Active</option>
+              <option value="Suspended">Suspended</option>
+            </select>
+          </div>
+          <button type="submit" class="w-full py-4 bg-primary hover:bg-primary-dark text-white font-bold rounded-2xl text-center shadow-lg shadow-primary/20 active:scale-95 transition-all text-sm focus:outline-none">
+            Save User Account
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Reseller Bottom Navigation Bar (Mobile only) -->
+    <div class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md bg-white border-t border-slate-100 px-6 py-2.5 flex justify-between items-center z-40 md:hidden">
+      
+      <!-- Dashboard -->
+      <a href="reseller-dashboard.html" class="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-600 transition-colors">
+        <i data-lucide="layout-dashboard" class="w-5.5 h-5.5"></i>
+        <span class="text-[10px] font-bold">Dashboard</span>
+      </a>
+
+      <!-- Users (Active) -->
+      <a href="reseller-users.html" class="flex flex-col items-center gap-1 text-primary focus:outline-none">
+        <i data-lucide="users" class="w-5.5 h-5.5"></i>
+        <span class="text-[10px] font-extrabold">Users</span>
+      </a>
+
+      <!-- Recharge -->
+      <a href="#" onclick="alert('Client recharge simulated via client list actions.')" class="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-600 transition-colors">
+        <i data-lucide="credit-card" class="w-5.5 h-5.5"></i>
+        <span class="text-[10px] font-bold">Recharge</span>
+      </a>
+
+      <!-- Reports -->
+      <a href="#" onclick="alert('Reports generator coming soon.')" class="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-600 transition-colors">
+        <i data-lucide="bar-chart-2" class="w-5.5 h-5.5"></i>
+        <span class="text-[10px] font-bold">Reports</span>
+      </a>
+
+      <!-- More -->
+      <a href="index.html" class="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-600 transition-colors">
+        <i data-lucide="settings" class="w-5.5 h-5.5"></i>
+        <span class="text-[10px] font-bold">Portal Select</span>
+      </a>
+
+    </div>
+
+  </div>
+
+  <style>
+    @keyframes slideUp {
+      from { transform: translateY(100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .animate-slide-up {
+      animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Default users list
+    const defaultUsers = [
+      { id: '3LINK-10321', speed: '567Mbps', status: 'Active', avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100&h=100' },
+      { id: '3LINK-10310', speed: '201Mbps', status: 'Active', avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=100&h=100' },
+      { id: '3LINK-10020', speed: '102Mbps', status: 'Suspended', avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=100&h=100' },
+      { id: '3LINK-10346', speed: '567Mbps', status: 'Active', avatar: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=100&h=100' }
+    ];
+
+    let currentFilter = 'all';
+
+    function renderUsers() {
+      const container = document.getElementById('users-container');
+      let users = JSON.parse(localStorage.getItem('reseller_users')) || [];
+
+      if (users.length === 0) {
+        users = defaultUsers;
+        localStorage.setItem('reseller_users', JSON.stringify(users));
+      }
+
+      container.innerHTML = ''; // Clear
+
+      users.forEach(user => {
+        const isActive = user.status.toLowerCase() === 'active';
+        
+        // Apply filter logic
+        if (currentFilter === 'online' && !isActive) return;
+        if (currentFilter === 'offline' && isActive) return;
+
+        const statusIcon = isActive
+          ? `<div class="w-8 h-8 rounded-full bg-green-50 text-green-600 flex items-center justify-center border border-green-200 shadow-sm shrink-0">
+               <i data-lucide="check" class="w-4 h-4"></i>
+             </div>`
+          : `<div class="w-8 h-8 rounded-full bg-red-50 text-red-600 flex items-center justify-center border border-red-200 shadow-sm shrink-0">
+               <i data-lucide="minus" class="w-4 h-4"></i>
+             </div>`;
+
+        const statusColor = isActive ? 'text-green-600' : 'text-red-500';
+
+        const userEl = document.createElement('div');
+        userEl.className = 'bg-white rounded-3xl p-5 border border-slate-100 shadow-sm flex items-center justify-between gap-3 transition-transform hover:-translate-y-0.5 duration-150';
+        userEl.innerHTML = `
+          <div class="flex items-center gap-3">
+            <div class="relative shrink-0">
+              <img src="${user.avatar}" alt="Client" class="w-12 h-12 rounded-2xl object-cover border border-slate-100">
+              <span class="absolute bottom-0 right-0 w-3 h-3 border-2 border-white rounded-full ${isActive ? 'bg-green-500' : 'bg-red-500'}"></span>
+            </div>
+            <div>
+              <h4 class="text-sm font-extrabold text-slate-800 leading-tight">${user.id}</h4>
+              <p class="text-[10px] text-slate-400 font-semibold mt-1">
+                ${user.speed} • <span class="${statusColor}">${user.status}</span>
+              </p>
+            </div>
+          </div>
+          ${statusIcon}
+        `;
+        container.appendChild(userEl);
+      });
+      lucide.createIcons();
+    }
+
+    function filterUsers(filter) {
+      currentFilter = filter;
+      
+      const allBtn = document.getElementById('tab-all');
+      const onlineBtn = document.getElementById('tab-online');
+      const offlineBtn = document.getElementById('tab-offline');
+
+      // Reset styles
+      [allBtn, onlineBtn, offlineBtn].forEach(b => {
+        b.className = 'w-1/3 py-2.5 font-bold rounded-xl transition-all duration-200 text-slate-500 hover:text-slate-800 hover:bg-slate-50 focus:outline-none';
+      });
+
+      // Apply active style
+      const activeBtn = document.getElementById('tab-' + filter);
+      activeBtn.className = 'w-1/3 py-2.5 font-extrabold rounded-xl transition-all duration-200 bg-primary text-white shadow-sm focus:outline-none';
+
+      renderUsers();
+    }
+
+    // Toggle modal
+    function openAddUserModal() {
+      document.getElementById('add-user-modal').classList.remove('hidden');
+    }
+
+    function closeAddUserModal() {
+      document.getElementById('add-user-modal').classList.add('hidden');
+    }
+
+    function addUser(e) {
+      e.preventDefault();
+      
+      const id = document.getElementById('user-id').value;
+      const speed = document.getElementById('user-speed').value;
+      const status = document.getElementById('user-status').value;
+      
+      const avatar = `https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=100&h=100`;
+
+      let users = JSON.parse(localStorage.getItem('reseller_users')) || [];
+      users.unshift({ id, speed, status, avatar });
+      localStorage.setItem('reseller_users', JSON.stringify(users));
+
+      // Reset form
+      document.getElementById('user-id').value = '';
+      closeAddUserModal();
+
+      // Rerender list
+      renderUsers();
+
+      alert("Client " + id + " has been added successfully!");
+    }
+
+    // Run on load
+    renderUsers();
+  </script>
+
+  <!-- Demo navigator widget -->
+  <script src="demo-nav.js"></script>
+</body>
+</html>

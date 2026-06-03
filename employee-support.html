@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Field Support - 3LINK Networks</title>
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+          colors: {
+            primary: '#0047BA',
+            'primary-dark': '#00358A',
+            'brand-blue': '#00D2FF',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-100 font-sans text-slate-800 min-h-screen flex flex-col">
+
+  <!-- Desktop Top Header Navbar (Visible only on desktop - Employee Portal) -->
+  <header class="hidden md:flex bg-primary text-white border-b border-primary-dark px-8 py-4 justify-between items-center shadow-md select-none shrink-0 z-40">
+    <div class="flex items-center gap-2">
+      <svg class="w-7 h-7 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+      </svg>
+      <div class="flex items-baseline gap-0.5">
+        <span class="text-xl font-extrabold text-brand-blue tracking-tight">3</span>
+        <span class="text-xl font-black text-white tracking-wide">LINK</span>
+        <span class="text-[9px] uppercase tracking-wider text-slate-300 font-bold ml-1.5">Tech</span>
+      </div>
+    </div>
+    
+    <!-- Center navigation -->
+    <nav class="flex items-center gap-6 text-sm font-extrabold text-white/80">
+      <a href="employee-attendance.html" class="hover:text-white transition-colors">Attendance</a>
+      <a href="employee-tasks.html" class="text-white border-b-2 border-white pb-0.5">Tasks</a>
+      <a href="index.html" class="hover:text-white transition-colors">Portal Select</a>
+    </nav>
+    
+    <!-- Right side -->
+    <div class="flex items-center gap-6">
+      <a href="#" onclick="alert('No tech alerts.')" class="relative text-white/80 hover:text-white p-2">
+        <i data-lucide="bell" class="w-5 h-5"></i>
+        <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full"></span>
+      </a>
+      <div class="flex items-center gap-2.5 text-white/80">
+        <img src="https://images.unsplash.com/photo-1540569014015-19a7be504e3a?auto=format&fit=crop&q=80&w=80&h=80" class="w-8 h-8 rounded-full border border-white/20 object-cover">
+        <span class="text-xs font-bold">Jahid Hasan</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Responsive Screen Container -->
+  <div class="w-full flex-grow flex flex-col bg-slate-50 min-h-screen pb-20 md:pb-6 relative">
+    
+    <!-- Top Blue Header Section (Mobile only) -->
+    <div class="bg-primary pt-4 pb-12 px-6 relative rounded-b-[32px] shadow-lg shadow-primary/10 md:hidden">
+      <!-- Status Bar -->
+      <div class="w-full flex justify-between items-center text-xs text-white/80 font-semibold mb-6">
+        <div>9:41</div>
+        <div class="flex items-center gap-1.5">
+          <i data-lucide="signal" class="w-3.5 h-3.5"></i>
+          <i data-lucide="wifi" class="w-3.5 h-3.5"></i>
+          <i data-lucide="battery" class="w-4 h-4"></i>
+        </div>
+      </div>
+
+      <!-- Navigation Row -->
+      <div class="flex items-center gap-4 text-white">
+        <a href="employee-tasks.html" class="p-1 hover:bg-white/10 rounded-lg transition-colors">
+          <i data-lucide="arrow-left" class="w-6 h-6"></i>
+        </a>
+        <h2 class="text-xl font-extrabold tracking-tight">Field Support</h2>
+      </div>
+    </div>
+
+    <!-- Main Content Wrapper -->
+    <div class="max-w-6xl mx-auto w-full px-6 -mt-8 md:mt-8 z-10 flex-grow flex flex-col gap-4">
+      
+      <!-- Desktop Header (Visible only on desktop) -->
+      <div class="hidden md:flex justify-between items-center mb-2">
+        <div>
+          <h2 class="text-2xl font-black text-slate-900 tracking-tight">Field Support Detail</h2>
+          <p class="text-sm text-slate-500 font-semibold mt-1">Review the customer's route location, details, and finalize task installation</p>
+        </div>
+      </div>
+
+      <!-- Grid layout for desktop splitting -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
+        
+        <!-- Left Column: Details & Actions -->
+        <div class="space-y-6 md:col-span-1">
+          <!-- Detail cards -->
+          <div class="space-y-3">
+            
+            <!-- Work Status Card -->
+            <div class="bg-white rounded-2xl p-4.5 border border-slate-100 shadow-sm flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-green-50 text-green-600 flex items-center justify-center shrink-0 border border-green-100">
+                  <i data-lucide="clipboard" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <span class="text-[9px] font-bold text-slate-400 uppercase tracking-wider block">Work Status</span>
+                  <span id="work-status-text" class="text-sm font-extrabold text-green-600 mt-0.5 block">On Work</span>
+                </div>
+              </div>
+              <!-- Selected Radio Button -->
+              <div class="w-6 h-6 rounded-full border-2 border-primary flex items-center justify-center shrink-0">
+                <div class="w-3 h-3 bg-primary rounded-full"></div>
+              </div>
+            </div>
+
+            <!-- Customer Info Card -->
+            <div class="bg-white rounded-2xl p-4.5 border border-slate-100 shadow-sm flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-blue-50 text-primary flex items-center justify-center shrink-0 border border-blue-100">
+                  <i data-lucide="user" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <span class="text-[9px] font-bold text-slate-400 uppercase tracking-wider block">Customer Info</span>
+                  <span class="text-sm font-extrabold text-slate-800 mt-0.5 block">3LINK-1001</span>
+                  <span class="text-[10px] text-slate-400 font-semibold block">Fiber Installation</span>
+                </div>
+              </div>
+              <!-- Selected Radio Button -->
+              <div class="w-6 h-6 rounded-full border-2 border-primary flex items-center justify-center shrink-0">
+                <div class="w-3 h-3 bg-primary rounded-full"></div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Customer Photos Section -->
+          <div class="bg-white rounded-3xl p-5 border border-slate-100 shadow-sm">
+            <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Customer Photos</h3>
+            <div class="flex items-center gap-3 overflow-x-auto no-scrollbar py-1">
+              <!-- Photos row -->
+              <div class="relative w-16 h-16 rounded-2xl overflow-hidden border-2 border-white shadow-sm shrink-0">
+                <img src="https://images.unsplash.com/photo-1540569014015-19a7be504e3a?auto=format&fit=crop&q=80&w=100&h=100" class="w-full h-full object-cover">
+              </div>
+              <div class="relative w-16 h-16 rounded-2xl overflow-hidden border-2 border-white shadow-sm shrink-0">
+                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=100&h=100" class="w-full h-full object-cover">
+              </div>
+              <div class="relative w-16 h-16 rounded-2xl overflow-hidden border-2 border-white shadow-sm shrink-0">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100&h=100" class="w-full h-full object-cover">
+              </div>
+              <div class="relative w-16 h-16 rounded-2xl overflow-hidden border-2 border-white shadow-sm shrink-0">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=100&h=100" class="w-full h-full object-cover">
+              </div>
+              <!-- Arrow next -->
+              <button onclick="alert('Viewing next photos')" class="w-8 h-8 rounded-full bg-white hover:bg-slate-50 shadow-sm flex items-center justify-center border border-slate-100 shrink-0 focus:outline-none">
+                <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Complete Task Button (Desktop Sidebar / Mobile bottom) -->
+          <div class="hidden md:block">
+            <button id="complete-btn-desktop" onclick="completeTask()" class="w-full py-4 bg-primary hover:bg-primary-dark text-white font-bold rounded-2xl flex items-center justify-center gap-2 shadow-lg shadow-primary/20 active:scale-[0.98] transition-all text-sm uppercase tracking-wider focus:outline-none">
+              <i data-lucide="check" class="w-5 h-5"></i>
+              Complete Task
+            </button>
+          </div>
+        </div>
+
+        <!-- Right Column: Vector Map -->
+        <div class="space-y-6 md:col-span-2">
+          <!-- Styled Vector Map Container -->
+          <div class="bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-md relative h-64 md:h-[380px] shrink-0">
+            <!-- SVG Map Layout -->
+            <svg class="w-full h-full bg-[#E5E9F0]" viewBox="0 0 350 220" preserveAspectRatio="none">
+              <!-- Ambient Map Grids/Roads -->
+              <path d="M 0 40 L 350 40 M 0 110 L 350 110 M 0 180 L 350 180 M 80 0 L 80 220 M 180 0 L 180 220 M 270 0 L 270 220" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/>
+              <path d="M 30 0 L 320 220 M 320 0 L 30 220" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+
+              <!-- Label texts of areas -->
+              <text x="70" y="60" fill="#94a3b8" font-size="9" font-weight="700" text-anchor="middle">Dhanmondi</text>
+              <text x="180" y="80" fill="#94a3b8" font-size="9" font-weight="700" text-anchor="middle">Banani</text>
+              <text x="210" y="160" fill="#94a3b8" font-size="9" font-weight="700" text-anchor="middle">Mohakhali</text>
+              <text x="190" y="30" fill="#94a3b8" font-size="9" font-weight="700" text-anchor="middle">Gulshan</text>
+              <text x="290" y="90" fill="#94a3b8" font-size="9" font-weight="700" text-anchor="middle">Baridhara</text>
+
+              <!-- SVG Routing Lines (Green & Orange) -->
+              <!-- Green route: Dhanmondi (90,110) to Mohakhali (180,120) -->
+              <path d="M 90 110 L 180 120" stroke="#22C55E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              <!-- Orange route: Mohakhali (180,120) to Gulshan (250,50) -->
+              <path d="M 180 120 L 250 50" stroke="#F97316" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+              <!-- Location Pins -->
+              <!-- Green pin at Dhanmondi -->
+              <g transform="translate(90, 95)">
+                <circle cx="0" cy="0" r="6" fill="#22C55E" stroke="#FFFFFF" stroke-width="1.5" />
+                <path d="M-6 0 C-6 -8 6 -8 6 0 C6 6 0 12 0 12 C0 12 -6 6 -6 0 Z" fill="#22C55E"/>
+                <circle cx="0" cy="0" r="2" fill="#FFFFFF"/>
+              </g>
+
+              <!-- Orange pin center intersection -->
+              <circle cx="180" cy="120" r="8" fill="#F97316" stroke="#FFFFFF" stroke-width="2"/>
+
+              <!-- Blue Pin at Gulshan destination -->
+              <g transform="translate(250, 35)">
+                <circle cx="0" cy="0" r="6" fill="#0047BA" stroke="#FFFFFF" stroke-width="1.5" />
+                <path d="M-6 0 C-6 -8 6 -8 6 0 C6 6 0 12 0 12 C0 12 -6 6 -6 0 Z" fill="#0047BA"/>
+                <circle cx="0" cy="0" r="2" fill="#FFFFFF"/>
+              </g>
+            </svg>
+
+            <!-- Route Status Badge on Map -->
+            <span class="absolute bottom-4 left-4 bg-green-600 text-white text-[9px] font-black uppercase px-2.5 py-1 rounded-full tracking-wider shadow-md">
+              On Route
+            </span>
+
+            <!-- Map Target Pin Button (Bottom Right) -->
+            <button onclick="alert('Centering map on technician location...')" class="absolute bottom-4 right-4 w-9 h-9 bg-white hover:bg-slate-50 text-slate-700 rounded-full shadow-md flex items-center justify-center border border-slate-100 active:scale-95 transition-transform focus:outline-none">
+              <i data-lucide="crosshair" class="w-4.5 h-4.5"></i>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Complete Task Button (Mobile only) -->
+    <div class="px-6 pb-6 pt-3 md:hidden">
+      <button id="complete-btn-mobile" onclick="completeTask()" class="w-full py-4 bg-primary hover:bg-primary-dark text-white font-bold rounded-2xl flex items-center justify-center gap-2 shadow-lg shadow-primary/20 active:scale-[0.99] transition-all text-sm uppercase tracking-wider focus:outline-none">
+        <i data-lucide="check" class="w-5 h-5"></i>
+        Complete Task
+      </button>
+    </div>
+
+    <!-- Employee Navigation Bar (Visible on mobile only) -->
+    <div class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md bg-white border-t border-slate-100 px-6 py-2.5 flex justify-between items-center z-40 md:hidden">
+      
+      <!-- Attendance / Home -->
+      <a href="employee-attendance.html" class="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-600 transition-colors">
+        <i data-lucide="check-square" class="w-5.5 h-5.5"></i>
+        <span class="text-[10px] font-bold">Attendance</span>
+      </a>
+
+      <!-- Tasks (Active) -->
+      <a href="employee-tasks.html" class="flex flex-col items-center gap-1 text-primary focus:outline-none">
+        <i data-lucide="clipboard-list" class="w-5.5 h-5.5"></i>
+        <span class="text-[10px] font-extrabold">Tasks</span>
+      </a>
+
+      <!-- Profile -->
+      <a href="index.html" class="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-600 transition-colors">
+        <i data-lucide="settings" class="w-5.5 h-5.5"></i>
+        <span class="text-[10px] font-bold">Portal Select</span>
+      </a>
+
+    </div>
+
+  </div>
+
+  <style>
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    let isCompleted = false;
+
+    function completeTask() {
+      if (isCompleted) return;
+      
+      if (confirm("Confirm task completion for customer client 3LINK-1001?")) {
+        isCompleted = true;
+        
+        const statusEl = document.getElementById('work-status-text');
+        statusEl.innerText = "Completed";
+        statusEl.className = "text-sm font-extrabold text-blue-600 mt-0.5 block";
+        
+        // Update both mobile & desktop buttons
+        const btnM = document.getElementById('complete-btn-mobile');
+        const btnD = document.getElementById('complete-btn-desktop');
+        
+        [btnM, btnD].forEach(btn => {
+          if (btn) {
+            btn.className = "w-full py-4 bg-slate-400 text-white font-bold rounded-2xl flex items-center justify-center gap-2 cursor-not-allowed text-sm uppercase tracking-wider focus:outline-none";
+            btn.innerHTML = `<i data-lucide="check-circle" class="w-5 h-5"></i><span>Task Finished</span>`;
+          }
+        });
+        
+        lucide.createIcons();
+        alert("Success! Task marked as completed. Redirecting to queue...");
+        
+        setTimeout(() => {
+          window.location.href = 'employee-tasks.html';
+        }, 1200);
+      }
+    }
+  </script>
+
+  <!-- Demo navigator widget -->
+  <script src="demo-nav.js"></script>
+</body>
+</html>

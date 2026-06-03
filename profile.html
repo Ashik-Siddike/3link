@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile - 3LINK Networks</title>
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+          colors: {
+            primary: '#0047BA',
+            'primary-dark': '#00358A',
+            'brand-blue': '#00D2FF',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-100 font-sans text-slate-800 min-h-screen flex flex-col">
+
+  <!-- Desktop Top Header Navbar (Visible only on desktop) -->
+  <header class="hidden md:flex bg-primary text-white border-b border-primary-dark px-8 py-4 justify-between items-center shadow-md select-none shrink-0 z-40">
+    <div class="flex items-center gap-2">
+      <svg class="w-7 h-7 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+      </svg>
+      <div class="flex items-baseline gap-0.5">
+        <span class="text-xl font-extrabold text-brand-blue tracking-tight">3</span>
+        <span class="text-xl font-black text-white tracking-wide">LINK</span>
+        <span class="text-[9px] uppercase tracking-wider text-slate-300 font-bold ml-1.5">Portal</span>
+      </div>
+    </div>
+    
+    <!-- Center navigation -->
+    <nav class="flex items-center gap-6 text-sm font-extrabold text-white/80">
+      <a href="dashboard.html" class="hover:text-white transition-colors">Home</a>
+      <a href="packages.html" class="hover:text-white transition-colors">Packages</a>
+      <a href="usage.html" class="hover:text-white transition-colors">Usage</a>
+      <a href="speedtest.html" class="hover:text-white transition-colors">Speed Test</a>
+      <a href="support.html" class="hover:text-white transition-colors">Support</a>
+      <a href="streaming.html" class="hover:text-white transition-colors">Streaming</a>
+      <a href="shop.html" class="hover:text-white transition-colors">Shop</a>
+      <a href="history.html" class="hover:text-white transition-colors">History</a>
+    </nav>
+    
+    <!-- Right side -->
+    <div class="flex items-center gap-6">
+      <a href="notifications.html" class="relative text-white/80 hover:text-white p-2">
+        <i data-lucide="bell" class="w-5 h-5"></i>
+        <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full"></span>
+      </a>
+      <a href="profile.html" class="flex items-center gap-2.5 text-white">
+        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=80&h=80" class="w-8 h-8 rounded-full border border-white/20 object-cover">
+        <span class="text-xs font-bold">Rakib Hasan</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Responsive Screen Container -->
+  <div class="w-full flex-grow flex flex-col bg-slate-50 min-h-screen pb-20 md:pb-6 relative">
+    
+    <!-- Top Blue Header Section (Mobile only) -->
+    <div class="bg-primary pt-4 pb-12 px-6 relative rounded-b-[32px] shadow-lg shadow-primary/10 md:hidden">
+      <!-- Status Bar -->
+      <div class="w-full flex justify-between items-center text-xs text-white/80 font-semibold mb-6">
+        <div>9:41</div>
+        <div class="flex items-center gap-1.5">
+          <i data-lucide="signal" class="w-3.5 h-3.5"></i>
+          <i data-lucide="wifi" class="w-3.5 h-3.5"></i>
+          <i data-lucide="battery" class="w-4 h-4"></i>
+        </div>
+      </div>
+
+      <!-- Navigation Row -->
+      <div class="flex items-center gap-4 text-white">
+        <a href="dashboard.html" class="p-1 hover:bg-white/10 rounded-lg transition-colors">
+          <i data-lucide="arrow-left" class="w-6 h-6"></i>
+        </a>
+        <h2 class="text-xl font-extrabold tracking-tight">Profile</h2>
+      </div>
+    </div>
+
+    <!-- Main Content Wrapper -->
+    <div class="max-w-6xl mx-auto w-full px-6 -mt-8 md:mt-8 z-10 flex-grow space-y-5">
+      
+      <!-- Desktop Header (Visible only on desktop) -->
+      <div class="hidden md:flex justify-between items-center mb-4">
+        <div>
+          <h2 class="text-2xl font-black text-slate-900 tracking-tight">Account Profile</h2>
+          <p class="text-sm text-slate-500 font-semibold mt-1">Manage your profile details and connection settings</p>
+        </div>
+      </div>
+
+      <!-- Grid layout for desktop splitting -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
+        
+        <!-- Left Column: Profile Card & Logout -->
+        <div class="space-y-6 md:col-span-1">
+          <!-- Profile Details Card -->
+          <div class="bg-white rounded-3xl p-6 shadow-md shadow-slate-100 flex md:flex-col items-center md:items-start gap-4 border border-slate-100">
+            <img 
+              src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=120&h=120" 
+              alt="Rakib Hasan" 
+              class="w-16 h-16 md:w-24 md:h-24 rounded-full object-cover border-2 border-slate-100"
+            >
+            <div>
+              <h2 class="text-lg font-extrabold text-slate-900 leading-tight">Rakib Hasan</h2>
+              <p class="text-xs text-slate-400 font-semibold tracking-wide mt-1">ID: 3LINK-10321</p>
+              <p class="text-xs text-slate-400 font-semibold tracking-wide mt-1">Mobile: 017XXXXXXXX</p>
+            </div>
+          </div>
+
+          <!-- Logout Button (Desktop Sidebar / Mobile bottom) -->
+          <button onclick="handleLogout()" class="w-full py-4 bg-red-50 hover:bg-red-100 border border-red-200/50 text-red-600 font-extrabold rounded-2xl flex items-center justify-center gap-2 active:scale-[0.98] transition-all text-sm focus:outline-none shadow-sm">
+            <i data-lucide="log-out" class="w-5 h-5 text-red-600"></i>
+            Logout
+          </button>
+        </div>
+
+        <!-- Right Column: Settings Menus -->
+        <div class="md:col-span-2 space-y-6">
+          
+          <!-- Settings Menu List -->
+          <div class="bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-sm divide-y divide-slate-100">
+            
+            <!-- Account Settings -->
+            <a href="#" onclick="alert('Account Settings screen coming soon')" class="flex items-center justify-between p-4.5 hover:bg-slate-50 transition-colors group">
+              <div class="flex items-center gap-3.5 text-slate-700">
+                <i data-lucide="user" class="w-5.5 h-5.5 text-slate-400 group-hover:text-primary transition-colors"></i>
+                <span class="text-sm font-extrabold text-slate-800">Account Settings</span>
+              </div>
+              <i data-lucide="chevron-right" class="w-5 h-5 text-slate-400 group-hover:translate-x-0.5 transition-transform"></i>
+            </a>
+
+            <!-- Change Password -->
+            <a href="#" onclick="alert('Change Password screen coming soon')" class="flex items-center justify-between p-4.5 hover:bg-slate-50 transition-colors group">
+              <div class="flex items-center gap-3.5 text-slate-700">
+                <i data-lucide="lock" class="w-5.5 h-5.5 text-slate-400 group-hover:text-primary transition-colors"></i>
+                <span class="text-sm font-extrabold text-slate-800">Change Password</span>
+              </div>
+              <i data-lucide="chevron-right" class="w-5 h-5 text-slate-400 group-hover:translate-x-0.5 transition-transform"></i>
+            </a>
+
+            <!-- Notification Settings -->
+            <a href="#" onclick="alert('Notification Settings screen coming soon')" class="flex items-center justify-between p-4.5 hover:bg-slate-50 transition-colors group">
+              <div class="flex items-center gap-3.5 text-slate-700">
+                <i data-lucide="bell" class="w-5.5 h-5.5 text-slate-400 group-hover:text-primary transition-colors"></i>
+                <span class="text-sm font-extrabold text-slate-800">Notification Settings</span>
+              </div>
+              <i data-lucide="chevron-right" class="w-5 h-5 text-slate-400 group-hover:translate-x-0.5 transition-transform"></i>
+            </a>
+
+            <!-- Privacy Policy -->
+            <a href="#" onclick="alert('Privacy Policy coming soon')" class="flex items-center justify-between p-4.5 hover:bg-slate-50 transition-colors group">
+              <div class="flex items-center gap-3.5 text-slate-700">
+                <i data-lucide="shield-check" class="w-5.5 h-5.5 text-slate-400 group-hover:text-primary transition-colors"></i>
+                <span class="text-sm font-extrabold text-slate-800">Privacy Policy</span>
+              </div>
+              <i data-lucide="chevron-right" class="w-5 h-5 text-slate-400 group-hover:translate-x-0.5 transition-transform"></i>
+            </a>
+
+            <!-- Terms & Conditions -->
+            <a href="#" onclick="alert('Terms & Conditions coming soon')" class="flex items-center justify-between p-4.5 hover:bg-slate-50 transition-colors group">
+              <div class="flex items-center gap-3.5 text-slate-700">
+                <i data-lucide="file-text" class="w-5.5 h-5.5 text-slate-400 group-hover:text-primary transition-colors"></i>
+                <span class="text-sm font-extrabold text-slate-800">Terms & Conditions</span>
+              </div>
+              <i data-lucide="chevron-right" class="w-5 h-5 text-slate-400 group-hover:translate-x-0.5 transition-transform"></i>
+            </a>
+
+            <!-- About 3 LINK Networks -->
+            <a href="#" onclick="alert('3LINK Networks is a premium ISP and smart connectivity solutions provider.')" class="flex items-center justify-between p-4.5 hover:bg-slate-50 transition-colors group">
+              <div class="flex items-center gap-3.5 text-slate-700">
+                <i data-lucide="info" class="w-5.5 h-5.5 text-slate-400 group-hover:text-primary transition-colors"></i>
+                <span class="text-sm font-extrabold text-slate-800">About 3 LINK Networks</span>
+              </div>
+              <i data-lucide="chevron-right" class="w-5 h-5 text-slate-400 group-hover:translate-x-0.5 transition-transform"></i>
+            </a>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Space Filler -->
+    <div class="h-6"></div>
+
+    <!-- Mobile Bottom Navigation Bar (Visible on mobile only) -->
+    <div class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md bg-white border-t border-slate-100 px-6 py-2.5 flex justify-between items-center z-40 md:hidden">
+      
+      <!-- Home -->
+      <a href="dashboard.html" class="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-600 transition-colors">
+        <i data-lucide="home" class="w-5.5 h-5.5"></i>
+        <span class="text-[10px] font-bold">Home</span>
+      </a>
+
+      <!-- Packages -->
+      <a href="packages.html" class="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-600 transition-colors">
+        <i data-lucide="box" class="w-5.5 h-5.5"></i>
+        <span class="text-[10px] font-bold">Packages</span>
+      </a>
+
+      <!-- Usage -->
+      <a href="usage.html" class="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-600 transition-colors">
+        <i data-lucide="trending-up" class="w-5.5 h-5.5"></i>
+        <span class="text-[10px] font-bold">Usage</span>
+      </a>
+
+      <!-- Support -->
+      <a href="support.html" class="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-600 transition-colors">
+        <i data-lucide="help-circle" class="w-5.5 h-5.5"></i>
+        <span class="text-[10px] font-bold">Support</span>
+      </a>
+
+      <!-- Profile (Active) -->
+      <a href="profile.html" class="flex flex-col items-center gap-1 text-primary focus:outline-none">
+        <i data-lucide="user" class="w-5.5 h-5.5"></i>
+        <span class="text-[10px] font-extrabold">Profile</span>
+      </a>
+
+    </div>
+
+  </div>
+
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    function handleLogout() {
+      if (confirm("Are you sure you want to logout?")) {
+        // Clear simulated balance states if they want to restart demo
+        localStorage.removeItem('balance');
+        localStorage.removeItem('payment_history');
+        localStorage.removeItem('notifications');
+        localStorage.removeItem('support_tickets');
+        localStorage.removeItem('cart_count');
+        
+        window.location.href = 'index.html';
+      }
+    }
+  </script>
+
+  <!-- Demo navigator widget -->
+  <script src="demo-nav.js"></script>
+</body>
+</html>

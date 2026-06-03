@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recharge - 3LINK Networks</title>
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+          colors: {
+            primary: '#0047BA',
+            'primary-dark': '#00358A',
+            'brand-blue': '#00D2FF',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-100 font-sans text-slate-800 min-h-screen flex flex-col">
+
+  <!-- Desktop Top Header Navbar (Visible only on desktop) -->
+  <header class="hidden md:flex bg-primary text-white border-b border-primary-dark px-8 py-4 justify-between items-center shadow-md select-none shrink-0 z-40">
+    <div class="flex items-center gap-2">
+      <svg class="w-7 h-7 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+      </svg>
+      <div class="flex items-baseline gap-0.5">
+        <span class="text-xl font-extrabold text-brand-blue tracking-tight">3</span>
+        <span class="text-xl font-black text-white tracking-wide">LINK</span>
+        <span class="text-[9px] uppercase tracking-wider text-slate-300 font-bold ml-1.5">Portal</span>
+      </div>
+    </div>
+    
+    <!-- Center navigation -->
+    <nav class="flex items-center gap-6 text-sm font-extrabold text-white/80">
+      <a href="dashboard.html" class="hover:text-white transition-colors">Home</a>
+      <a href="packages.html" class="hover:text-white transition-colors">Packages</a>
+      <a href="usage.html" class="hover:text-white transition-colors">Usage</a>
+      <a href="speedtest.html" class="hover:text-white transition-colors">Speed Test</a>
+      <a href="support.html" class="hover:text-white transition-colors">Support</a>
+      <a href="streaming.html" class="hover:text-white transition-colors">Streaming</a>
+      <a href="shop.html" class="hover:text-white transition-colors">Shop</a>
+      <a href="history.html" class="hover:text-white transition-colors">History</a>
+    </nav>
+    
+    <!-- Right side -->
+    <div class="flex items-center gap-6">
+      <a href="notifications.html" class="relative text-white/80 hover:text-white p-2">
+        <i data-lucide="bell" class="w-5 h-5"></i>
+        <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full"></span>
+      </a>
+      <a href="profile.html" class="flex items-center gap-2.5 text-white/80 hover:text-white">
+        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=80&h=80" class="w-8 h-8 rounded-full border border-white/20 object-cover">
+        <span class="text-xs font-bold">Rakib Hasan</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Responsive Container -->
+  <div class="w-full flex-grow flex flex-col bg-slate-50 min-h-screen pb-20 md:pb-6 relative">
+    
+    <!-- Top Blue Header Section (Mobile only) -->
+    <div class="bg-primary pt-4 pb-12 px-6 relative rounded-b-[32px] shadow-lg shadow-primary/10 md:hidden">
+      <!-- Status Bar -->
+      <div class="w-full flex justify-between items-center text-xs text-white/80 font-semibold mb-6">
+        <div>9:41</div>
+        <div class="flex items-center gap-1.5">
+          <i data-lucide="signal" class="w-3.5 h-3.5"></i>
+          <i data-lucide="wifi" class="w-3.5 h-3.5"></i>
+          <i data-lucide="battery" class="w-4 h-4"></i>
+        </div>
+      </div>
+
+      <!-- Navigation Row -->
+      <div class="flex items-center gap-4 text-white">
+        <a href="dashboard.html" class="p-1 hover:bg-white/10 rounded-lg transition-colors">
+          <i data-lucide="arrow-left" class="w-6 h-6"></i>
+        </a>
+        <h2 class="text-xl font-extrabold tracking-tight">Recharge</h2>
+      </div>
+    </div>
+
+    <!-- Main Content Container -->
+    <div class="max-w-6xl mx-auto w-full px-6 -mt-8 md:mt-8 z-10 flex-grow space-y-6">
+      
+      <!-- Desktop Header (Desktop only) -->
+      <div class="hidden md:flex justify-between items-center mb-2">
+        <div>
+          <h2 class="text-2xl font-black text-slate-900 tracking-tight">Recharge Account</h2>
+          <p class="text-sm text-slate-500 font-semibold mt-1">Select an amount and payment method to instantly renew your subscription</p>
+        </div>
+        <a href="dashboard.html" class="flex items-center gap-2 px-4 py-2 border border-slate-200 hover:bg-slate-100 text-slate-650 rounded-xl text-xs font-bold transition-all duration-150">
+          <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Dashboard
+        </a>
+      </div>
+
+      <!-- Grid Layout for Desktop Split -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
+        
+        <!-- Left Panel: Balance & Amount Selection -->
+        <div class="space-y-6 md:col-span-1">
+          <!-- Balance Card -->
+          <div class="bg-white rounded-3xl p-6 shadow-md shadow-slate-100 border border-slate-100">
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block">Current Balance</span>
+            <div class="text-3xl font-black text-slate-900 tracking-tight mt-1.5 flex items-baseline">
+              <span class="text-2xl font-bold mr-1">৳</span><span id="display-balance">883.24</span>
+            </div>
+          </div>
+
+          <!-- Select Amount Section -->
+          <div>
+            <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Select Amount</h3>
+            <div class="grid grid-cols-3 gap-3">
+              <!-- Amounts Buttons -->
+              <button onclick="setAmount(200, this)" class="amount-btn py-3.5 px-2 bg-white border border-slate-200 hover:border-primary text-slate-800 font-extrabold rounded-2xl text-center active:scale-95 transition-all text-sm">
+                ৳ 200
+              </button>
+              <button onclick="setAmount(500, this)" class="amount-btn py-3.5 px-2 bg-primary border border-primary text-white font-extrabold rounded-2xl text-center active:scale-95 transition-all text-sm">
+                ৳ 500
+              </button>
+              <button onclick="setAmount(1000, this)" class="amount-btn py-3.5 px-2 bg-white border border-slate-200 hover:border-primary text-slate-800 font-extrabold rounded-2xl text-center active:scale-95 transition-all text-sm">
+                ৳ 1000
+              </button>
+              <button onclick="setAmount(2000, this)" class="amount-btn py-3.5 px-2 bg-white border border-slate-200 hover:border-primary text-slate-800 font-extrabold rounded-2xl text-center active:scale-95 transition-all text-sm">
+                ৳ 2000
+              </button>
+              <button onclick="setAmount(3000, this)" class="amount-btn py-3.5 px-2 bg-white border border-slate-200 hover:border-primary text-slate-800 font-extrabold rounded-2xl text-center active:scale-95 transition-all text-sm">
+                ৳ 3000
+              </button>
+              <button onclick="setOtherAmount(this)" class="amount-btn py-3.5 px-2 bg-white border border-slate-200 hover:border-primary text-slate-800 font-extrabold rounded-2xl text-center active:scale-95 transition-all text-sm">
+                Other
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Panel: Payment Gateways -->
+        <div class="md:col-span-2 space-y-4">
+          <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest">Select Payment Method</h3>
+          <div class="bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-sm divide-y divide-slate-100">
+            
+            <!-- bKash -->
+            <button onclick="processPayment('bKash')" class="w-full flex items-center justify-between p-5 hover:bg-slate-50 transition-colors text-left focus:outline-none group">
+              <div class="flex items-center gap-3.5">
+                <div class="w-11 h-11 rounded-xl bg-pink-50 flex items-center justify-center shrink-0">
+                  <svg class="w-6 h-6 text-[#E2125B]" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2L2 14h6v8h8v-8h6L12 2z"/>
+                  </svg>
+                </div>
+                <div>
+                  <span class="text-sm font-extrabold text-slate-800">bKash Mobile Wallet</span>
+                  <p class="text-[10px] text-slate-400 font-semibold mt-0.5">Pay instantly via bkash checkout gateway</p>
+                </div>
+              </div>
+              <i data-lucide="chevron-right" class="w-5 h-5 text-slate-400 group-hover:translate-x-0.5 transition-transform"></i>
+            </button>
+
+            <!-- Nagad -->
+            <button onclick="processPayment('Nagad')" class="w-full flex items-center justify-between p-5 hover:bg-slate-50 transition-colors text-left focus:outline-none group">
+              <div class="flex items-center gap-3.5">
+                <div class="w-11 h-11 rounded-xl bg-orange-50 flex items-center justify-center shrink-0">
+                  <svg class="w-6 h-6 text-[#F97316]" fill="currentColor" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10"/>
+                  </svg>
+                </div>
+                <div>
+                  <span class="text-sm font-extrabold text-slate-800">Nagad Wallet</span>
+                  <p class="text-[10px] text-slate-400 font-semibold mt-0.5">Nagad easy billing secure authentication</p>
+                </div>
+              </div>
+              <i data-lucide="chevron-right" class="w-5 h-5 text-slate-400 group-hover:translate-x-0.5 transition-transform"></i>
+            </button>
+
+            <!-- Rocket -->
+            <button onclick="processPayment('Rocket')" class="w-full flex items-center justify-between p-5 hover:bg-slate-50 transition-colors text-left focus:outline-none group">
+              <div class="flex items-center gap-3.5">
+                <div class="w-11 h-11 rounded-xl bg-purple-50 flex items-center justify-center shrink-0">
+                  <i data-lucide="rocket" class="w-5 h-5 text-purple-600"></i>
+                </div>
+                <div>
+                  <span class="text-sm font-extrabold text-slate-800">DBBL Rocket Wallet</span>
+                  <p class="text-[10px] text-slate-400 font-semibold mt-0.5">Fast payment using Dutch-Bangla mobile bank</p>
+                </div>
+              </div>
+              <i data-lucide="chevron-right" class="w-5 h-5 text-slate-400 group-hover:translate-x-0.5 transition-transform"></i>
+            </button>
+
+            <!-- Card Payment -->
+            <button onclick="processPayment('Card Payment')" class="w-full flex items-center justify-between p-5 hover:bg-slate-50 transition-colors text-left focus:outline-none group">
+              <div class="flex items-center gap-3.5">
+                <div class="w-11 h-11 rounded-xl bg-blue-50 flex items-center justify-center shrink-0">
+                  <i data-lucide="credit-card" class="w-5 h-5 text-blue-600"></i>
+                </div>
+                <div>
+                  <span class="text-sm font-extrabold text-slate-800">Credit or Debit Card</span>
+                  <p class="text-[10px] text-slate-400 font-semibold mt-0.5">Visa, Mastercard, DBBL Nexus & other local cards</p>
+                </div>
+              </div>
+              <i data-lucide="chevron-right" class="w-5 h-5 text-slate-400 group-hover:translate-x-0.5 transition-transform"></i>
+            </button>
+
+            <!-- SSLCommerz -->
+            <button onclick="processPayment('SSLCommerz')" class="w-full flex items-center justify-between p-5 hover:bg-slate-50 transition-colors text-left focus:outline-none group">
+              <div class="flex items-center gap-3.5">
+                <div class="w-11 h-11 rounded-xl bg-red-50 flex items-center justify-center shrink-0">
+                  <span class="text-red-600 font-black text-lg">S</span>
+                </div>
+                <div>
+                  <span class="text-sm font-extrabold text-slate-800">SSLCommerz Multi-gateway</span>
+                  <p class="text-[10px] text-slate-400 font-semibold mt-0.5">Netbanking, wallets and international gateway selector</p>
+                </div>
+              </div>
+              <i data-lucide="chevron-right" class="w-5 h-5 text-slate-400 group-hover:translate-x-0.5 transition-transform"></i>
+            </button>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Space filler -->
+    <div class="h-8"></div>
+
+    <!-- Mobile Bottom Navigation Bar (Visible on mobile only) -->
+    <div class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md bg-white border-t border-slate-100 px-6 py-2.5 flex justify-between items-center z-40 md:hidden">
+      <a href="dashboard.html" class="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-650">
+        <i data-lucide="home" class="w-5.5 h-5.5"></i>
+        <span class="text-[10px] font-bold">Home</span>
+      </a>
+      <a href="packages.html" class="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-650">
+        <i data-lucide="box" class="w-5.5 h-5.5"></i>
+        <span class="text-[10px] font-bold">Packages</span>
+      </a>
+      <a href="usage.html" class="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-650">
+        <i data-lucide="trending-up" class="w-5.5 h-5.5"></i>
+        <span class="text-[10px] font-bold">Usage</span>
+      </a>
+      <a href="support.html" class="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-650">
+        <i data-lucide="help-circle" class="w-5.5 h-5.5"></i>
+        <span class="text-[10px] font-bold">Support</span>
+      </a>
+      <a href="profile.html" class="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-650">
+        <i data-lucide="user" class="w-5.5 h-5.5"></i>
+        <span class="text-[10px] font-bold">Profile</span>
+      </a>
+    </div>
+
+    <!-- Interactive Simulated Gateway Loader Modal -->
+    <div id="payment-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm hidden flex items-center justify-center p-6">
+      <div class="bg-white rounded-3xl w-full max-w-sm p-8 text-center space-y-6 shadow-2xl">
+        <div class="flex justify-center">
+          <div class="w-16 h-16 border-4 border-slate-100 border-t-primary rounded-full animate-spin"></div>
+        </div>
+        <div>
+          <h3 class="text-lg font-extrabold text-slate-900">Processing Payment...</h3>
+          <p class="text-sm text-slate-500 mt-2">Connecting to <span id="gateway-name" class="font-bold text-slate-800">Bkash</span> gateway secure server</p>
+        </div>
+        <p class="text-xs text-slate-400">Please do not close the browser or press back button.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Local State Mechanics
+    let selectedAmount = 500;
+    
+    // Set balance from localStorage or default
+    let currentBalance = parseFloat(localStorage.getItem('balance')) || 883.24;
+    document.getElementById('display-balance').innerText = currentBalance.toFixed(2);
+
+    function setAmount(amount, btn) {
+      selectedAmount = amount;
+      
+      // Toggle button active styling
+      document.querySelectorAll('.amount-btn').forEach(b => {
+        b.classList.remove('bg-primary', 'border-primary', 'text-white');
+        b.classList.add('bg-white', 'border-slate-200', 'text-slate-800');
+      });
+      btn.classList.add('bg-primary', 'border-primary', 'text-white');
+      btn.classList.remove('bg-white', 'border-slate-200', 'text-slate-800');
+    }
+
+    function setOtherAmount(btn) {
+      let customAmount = prompt("Enter recharge amount (৳):", "500");
+      if (customAmount && !isNaN(customAmount) && parseFloat(customAmount) > 0) {
+        setAmount(parseFloat(customAmount), btn);
+        btn.innerText = "৳ " + customAmount;
+      }
+    }
+
+    function processPayment(gateway) {
+      document.getElementById('gateway-name').innerText = gateway;
+      const modal = document.getElementById('payment-modal');
+      modal.classList.remove('hidden');
+
+      setTimeout(() => {
+        // Calculate new balance
+        let newBalance = currentBalance + selectedAmount;
+        localStorage.setItem('balance', newBalance.toFixed(2));
+        
+        // Add payment transaction to history
+        let payments = JSON.parse(localStorage.getItem('payment_history')) || [];
+        payments.unshift({
+          date: new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }),
+          amount: selectedAmount,
+          method: gateway,
+          status: 'Successful'
+        });
+        localStorage.setItem('payment_history', JSON.stringify(payments));
+
+        // Add Notification
+        let notifications = JSON.parse(localStorage.getItem('notifications')) || [];
+        notifications.unshift({
+          title: 'Payment Successful',
+          desc: `৳ ${selectedAmount} payment successful via ${gateway}`,
+          time: 'Just now',
+          type: 'success',
+          dot: 'green'
+        });
+        localStorage.setItem('notifications', JSON.stringify(notifications));
+
+        // Redirect with Success marker
+        window.location.href = 'dashboard.html?recharge=success&amount=' + selectedAmount;
+      }, 2000);
+    }
+  </script>
+
+  <!-- Demo navigator widget -->
+  <script src="demo-nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Usage - 3LINK Networks</title>
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+          colors: {
+            primary: '#0047BA',
+            'primary-dark': '#00358A',
+            'brand-blue': '#00D2FF',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-100 font-sans text-slate-800 min-h-screen flex flex-col">
+
+  <!-- Desktop Top Header Navbar (Visible only on desktop) -->
+  <header class="hidden md:flex bg-primary text-white border-b border-primary-dark px-8 py-4 justify-between items-center shadow-md select-none shrink-0 z-40">
+    <div class="flex items-center gap-2">
+      <svg class="w-7 h-7 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+      </svg>
+      <div class="flex items-baseline gap-0.5">
+        <span class="text-xl font-extrabold text-brand-blue tracking-tight">3</span>
+        <span class="text-xl font-black text-white tracking-wide">LINK</span>
+        <span class="text-[9px] uppercase tracking-wider text-slate-300 font-bold ml-1.5">Portal</span>
+      </div>
+    </div>
+    
+    <!-- Center navigation -->
+    <nav class="flex items-center gap-6 text-sm font-extrabold text-white/80">
+      <a href="dashboard.html" class="hover:text-white transition-colors">Home</a>
+      <a href="packages.html" class="hover:text-white transition-colors">Packages</a>
+      <a href="usage.html" class="text-white border-b-2 border-white pb-0.5">Usage</a>
+      <a href="speedtest.html" class="hover:text-white transition-colors">Speed Test</a>
+      <a href="support.html" class="hover:text-white transition-colors">Support</a>
+      <a href="streaming.html" class="hover:text-white transition-colors">Streaming</a>
+      <a href="shop.html" class="hover:text-white transition-colors">Shop</a>
+      <a href="history.html" class="hover:text-white transition-colors">History</a>
+    </nav>
+    
+    <!-- Right side -->
+    <div class="flex items-center gap-6">
+      <a href="notifications.html" class="relative text-white/80 hover:text-white p-2">
+        <i data-lucide="bell" class="w-5 h-5"></i>
+        <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full"></span>
+      </a>
+      <a href="profile.html" class="flex items-center gap-2.5 text-white/80 hover:text-white">
+        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=80&h=80" class="w-8 h-8 rounded-full border border-white/20 object-cover">
+        <span class="text-xs font-bold">Rakib Hasan</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Responsive Container -->
+  <div class="w-full flex-grow flex flex-col bg-slate-50 min-h-screen pb-20 md:pb-6 relative">
+    
+    <!-- Top Blue Header Section (Mobile only) -->
+    <div class="bg-primary pt-4 pb-12 px-6 relative rounded-b-[32px] shadow-lg shadow-primary/10 md:hidden">
+      <!-- Status Bar -->
+      <div class="w-full flex justify-between items-center text-xs text-white/80 font-semibold mb-6">
+        <div>9:41</div>
+        <div class="flex items-center gap-1.5">
+          <i data-lucide="signal" class="w-3.5 h-3.5"></i>
+          <i data-lucide="wifi" class="w-3.5 h-3.5"></i>
+          <i data-lucide="battery" class="w-4 h-4"></i>
+        </div>
+      </div>
+
+      <!-- Navigation Row -->
+      <div class="flex items-center gap-4 text-white">
+        <a href="dashboard.html" class="p-1 hover:bg-white/10 rounded-lg transition-colors">
+          <i data-lucide="arrow-left" class="w-6 h-6"></i>
+        </a>
+        <h2 class="text-xl font-extrabold tracking-tight">Usage</h2>
+      </div>
+    </div>
+
+    <!-- Main Content Container -->
+    <div class="max-w-6xl mx-auto w-full px-6 -mt-8 md:mt-8 z-10 flex-grow space-y-6">
+      
+      <!-- Desktop Header (Desktop only) -->
+      <div class="hidden md:flex justify-between items-center mb-2">
+        <div>
+          <h2 class="text-2xl font-black text-slate-900 tracking-tight">Internet Usage</h2>
+          <p class="text-sm text-slate-500 font-semibold mt-1">Track your data consumption, active sessions and validity status</p>
+        </div>
+        <a href="dashboard.html" class="flex items-center gap-2 px-4 py-2 border border-slate-200 hover:bg-slate-100 text-slate-650 rounded-xl text-xs font-bold transition-all duration-150">
+          <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Dashboard
+        </a>
+      </div>
+
+      <!-- Grid Layout for Desktop Split -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
+        
+        <!-- Left Panel: Current Usage & Stats -->
+        <div class="space-y-6 md:col-span-1">
+          <!-- Current Usage Card -->
+          <div class="bg-white rounded-3xl p-6 shadow-md shadow-slate-100 space-y-4 border border-slate-100">
+            <div class="flex justify-between items-center">
+              <div>
+                <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block">Current Usage</span>
+                <h2 class="text-2xl font-black text-slate-900 tracking-tight mt-1.5 flex items-baseline">
+                  22.45 GB <span class="text-xs font-bold text-slate-400 ml-1.5 uppercase">/ 100 GB</span>
+                </h2>
+              </div>
+              <span class="text-xs font-bold text-primary bg-blue-50 px-2.5 py-1 rounded-full">22% Used</span>
+            </div>
+            
+            <!-- Progress Bar -->
+            <div class="w-full bg-slate-100 rounded-full h-3 overflow-hidden">
+              <div class="bg-primary h-full rounded-full transition-all duration-500" style="width: 22.45%"></div>
+            </div>
+
+            <div class="flex justify-between items-center text-xs text-slate-400 font-semibold pt-1">
+              <span class="flex items-center gap-1">
+                <i data-lucide="calendar" class="w-4 h-4 text-slate-400"></i>
+                Valid Till: 28 May 2024
+              </span>
+            </div>
+          </div>
+
+          <!-- Bottom Summary Cards (Two Grid) -->
+          <div class="grid grid-cols-2 gap-4">
+            <!-- Daily Usage -->
+            <div class="bg-white rounded-3xl p-5 shadow-sm border border-slate-100 flex flex-col gap-3">
+              <div class="w-10 h-10 rounded-xl bg-blue-50 text-primary flex items-center justify-center shrink-0">
+                <i data-lucide="calendar" class="w-5.5 h-5.5"></i>
+              </div>
+              <div>
+                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Daily Avg</span>
+                <span class="text-base font-black text-slate-800 mt-1 block">1.25 GB</span>
+              </div>
+            </div>
+            <!-- Average Speed -->
+            <div class="bg-white rounded-3xl p-5 shadow-sm border border-slate-100 flex flex-col gap-3">
+              <div class="w-10 h-10 rounded-xl bg-blue-50 text-primary flex items-center justify-center shrink-0">
+                <i data-lucide="gauge" class="w-5.5 h-5.5"></i>
+              </div>
+              <div>
+                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Avg Speed</span>
+                <span class="text-base font-black text-slate-800 mt-1 block">48.6 Mbps</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Panel: Usage History chart -->
+        <div class="md:col-span-2">
+          <!-- Usage History Card -->
+          <div class="bg-white rounded-3xl p-6 shadow-sm border border-slate-100 space-y-4">
+            <div>
+              <h3 class="text-sm font-extrabold text-slate-900">Usage History</h3>
+              <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mt-1">GB Used over time</span>
+            </div>
+            
+            <!-- Custom SVG Line Chart -->
+            <div class="relative h-64 w-full">
+              <svg viewBox="0 0 400 200" class="w-full h-full">
+                <defs>
+                  <!-- Gradient under the line -->
+                  <linearGradient id="chart-grad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#0047BA" stop-opacity="0.3"/>
+                    <stop offset="100%" stop-color="#0047BA" stop-opacity="0"/>
+                  </linearGradient>
+                </defs>
+
+                <!-- Horizontal dashed gridlines -->
+                <line x1="40" y1="20" x2="380" y2="20" stroke="#f1f5f9" stroke-dasharray="3" stroke-width="1.5"/>
+                <line x1="40" y1="60" x2="380" y2="60" stroke="#f1f5f9" stroke-dasharray="3" stroke-width="1.5"/>
+                <line x1="40" y1="100" x2="380" y2="100" stroke="#f1f5f9" stroke-dasharray="3" stroke-width="1.5"/>
+                <line x1="40" y1="140" x2="380" y2="140" stroke="#f1f5f9" stroke-dasharray="3" stroke-width="1.5"/>
+                <line x1="40" y1="180" x2="380" y2="180" stroke="#f1f5f9" stroke-dasharray="3" stroke-width="1.5"/>
+
+                <!-- Y-Axis Labels -->
+                <text x="32" y="24" fill="#94a3b8" font-size="10" font-weight="700" text-anchor="end">40 GB</text>
+                <text x="32" y="64" fill="#94a3b8" font-size="10" font-weight="700" text-anchor="end">30 GB</text>
+                <text x="32" y="104" fill="#94a3b8" font-size="10" font-weight="700" text-anchor="end">20 GB</text>
+                <text x="32" y="144" fill="#94a3b8" font-size="10" font-weight="700" text-anchor="end">10 GB</text>
+                <text x="32" y="184" fill="#94a3b8" font-size="10" font-weight="700" text-anchor="end">0 GB</text>
+
+                <!-- Area fill path -->
+                <path d="M 40 180 L 40 180 L 96.6 150 L 153.2 130 L 209.8 120 L 266.4 80 L 323 110 L 380 40 L 380 180 Z" fill="url(#chart-grad)"/>
+
+                <!-- Chart line path -->
+                <path d="M 40 180 L 96.6 150 L 153.2 130 L 209.8 120 L 266.4 80 L 323 110 L 380 40" fill="none" stroke="#0047BA" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+                <!-- Data Point Nodes -->
+                <circle cx="40" cy="180" r="4" fill="#0047BA" stroke="#ffffff" stroke-width="1.5"/>
+                <circle cx="96.6" cy="150" r="4" fill="#0047BA" stroke="#ffffff" stroke-width="1.5"/>
+                <circle cx="153.2" cy="130" r="4" fill="#0047BA" stroke="#ffffff" stroke-width="1.5"/>
+                <circle cx="209.8" cy="120" r="4" fill="#0047BA" stroke="#ffffff" stroke-width="1.5"/>
+                <circle cx="266.4" cy="80" r="4" fill="#0047BA" stroke="#ffffff" stroke-width="1.5"/>
+                <circle cx="323" cy="110" r="4" fill="#0047BA" stroke="#ffffff" stroke-width="1.5"/>
+                <circle cx="380" cy="40" r="5" fill="#0047BA" stroke="#ffffff" stroke-width="2"/>
+
+                <!-- X-Axis Labels -->
+                <text x="40" y="196" fill="#94a3b8" font-size="10" font-weight="700" text-anchor="middle">1 May</text>
+                <text x="96.6" y="196" fill="#94a3b8" font-size="10" font-weight="700" text-anchor="middle">6 May</text>
+                <text x="153.2" y="196" fill="#94a3b8" font-size="10" font-weight="700" text-anchor="middle">12 May</text>
+                <text x="209.8" y="196" fill="#94a3b8" font-size="10" font-weight="700" text-anchor="middle">18 May</text>
+                <text x="266.4" y="196" fill="#94a3b8" font-size="10" font-weight="700" text-anchor="middle">24 May</text>
+                <text x="380" y="196" fill="#94a3b8" font-size="10" font-weight="700" text-anchor="middle">28 May</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Space Filler -->
+    <div class="h-6"></div>
+
+    <!-- Mobile Bottom Navigation Bar (Visible on mobile only) -->
+    <div class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md bg-white border-t border-slate-100 px-6 py-2.5 flex justify-between items-center z-40 md:hidden">
+      <a href="dashboard.html" class="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-650">
+        <i data-lucide="home" class="w-5.5 h-5.5"></i>
+        <span class="text-[10px] font-bold">Home</span>
+      </a>
+      <a href="packages.html" class="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-650">
+        <i data-lucide="box" class="w-5.5 h-5.5"></i>
+        <span class="text-[10px] font-bold">Packages</span>
+      </a>
+      <a href="usage.html" class="flex flex-col items-center gap-1 text-primary focus:outline-none animate-pulse">
+        <i data-lucide="trending-up" class="w-5.5 h-5.5"></i>
+        <span class="text-[10px] font-extrabold">Usage</span>
+      </a>
+      <a href="support.html" class="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-650">
+        <i data-lucide="help-circle" class="w-5.5 h-5.5"></i>
+        <span class="text-[10px] font-bold">Support</span>
+      </a>
+      <a href="profile.html" class="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-650">
+        <i data-lucide="user" class="w-5.5 h-5.5"></i>
+        <span class="text-[10px] font-bold">Profile</span>
+      </a>
+    </div>
+
+  </div>
+
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+  </script>
+
+  <!-- Demo navigator widget -->
+  <script src="demo-nav.js"></script>
+</body>
+</html>

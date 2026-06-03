@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notifications - 3LINK Networks</title>
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+          colors: {
+            primary: '#0047BA',
+            'primary-dark': '#00358A',
+            'brand-blue': '#00D2FF',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-100 font-sans text-slate-800 min-h-screen flex flex-col">
+
+  <!-- Desktop Top Header Navbar (Visible only on desktop) -->
+  <header class="hidden md:flex bg-primary text-white border-b border-primary-dark px-8 py-4 justify-between items-center shadow-md select-none shrink-0 z-40">
+    <div class="flex items-center gap-2">
+      <svg class="w-7 h-7 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+      </svg>
+      <div class="flex items-baseline gap-0.5">
+        <span class="text-xl font-extrabold text-brand-blue tracking-tight">3</span>
+        <span class="text-xl font-black text-white tracking-wide">LINK</span>
+        <span class="text-[9px] uppercase tracking-wider text-slate-300 font-bold ml-1.5">Portal</span>
+      </div>
+    </div>
+    
+    <!-- Center navigation -->
+    <nav class="flex items-center gap-6 text-sm font-extrabold text-white/80">
+      <a href="dashboard.html" class="hover:text-white transition-colors">Home</a>
+      <a href="packages.html" class="hover:text-white transition-colors">Packages</a>
+      <a href="usage.html" class="hover:text-white transition-colors">Usage</a>
+      <a href="speedtest.html" class="hover:text-white transition-colors">Speed Test</a>
+      <a href="support.html" class="hover:text-white transition-colors">Support</a>
+      <a href="streaming.html" class="hover:text-white transition-colors">Streaming</a>
+      <a href="shop.html" class="hover:text-white transition-colors">Shop</a>
+      <a href="history.html" class="hover:text-white transition-colors">History</a>
+    </nav>
+    
+    <!-- Right side -->
+    <div class="flex items-center gap-6">
+      <a href="notifications.html" class="relative text-white p-2">
+        <i data-lucide="bell" class="w-5 h-5"></i>
+        <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full"></span>
+      </a>
+      <a href="profile.html" class="flex items-center gap-2.5 text-white/80 hover:text-white">
+        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=80&h=80" class="w-8 h-8 rounded-full border border-white/20 object-cover">
+        <span class="text-xs font-bold">Rakib Hasan</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Responsive Screen Container -->
+  <div class="w-full flex-grow flex flex-col bg-slate-50 min-h-screen pb-20 md:pb-6 relative">
+    
+    <!-- Top Blue Header Section (Mobile only) -->
+    <div class="bg-primary pt-4 pb-12 px-6 relative rounded-b-[32px] shadow-lg shadow-primary/10 md:hidden">
+      <!-- Status Bar -->
+      <div class="w-full flex justify-between items-center text-xs text-white/80 font-semibold mb-6">
+        <div>9:41</div>
+        <div class="flex items-center gap-1.5">
+          <i data-lucide="signal" class="w-3.5 h-3.5"></i>
+          <i data-lucide="wifi" class="w-3.5 h-3.5"></i>
+          <i data-lucide="battery" class="w-4 h-4"></i>
+        </div>
+      </div>
+
+      <!-- Navigation & Title Row -->
+      <div class="flex justify-between items-center text-white">
+        <div class="flex items-center gap-4">
+          <a href="dashboard.html" class="p-1 hover:bg-white/10 rounded-lg transition-colors">
+            <i data-lucide="arrow-left" class="w-6 h-6"></i>
+          </a>
+          <h2 class="text-xl font-extrabold tracking-tight">Notifications</h2>
+        </div>
+        
+        <!-- Bell with count -->
+        <div class="p-2.5 bg-white/10 text-white rounded-full relative">
+          <i data-lucide="bell" class="w-5 h-5"></i>
+          <span class="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-[10px] font-black rounded-full flex items-center justify-center border-2 border-primary">3</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content Wrapper -->
+    <div class="max-w-6xl mx-auto w-full px-6 -mt-8 md:mt-8 z-10 flex-grow space-y-5">
+      
+      <!-- Desktop Header (Visible only on desktop) -->
+      <div class="hidden md:flex justify-between items-center mb-4">
+        <div>
+          <h2 class="text-2xl font-black text-slate-900 tracking-tight">Notifications</h2>
+          <p class="text-sm text-slate-500 font-semibold mt-1">Keep track of bills, updates, and maintenance announcements</p>
+        </div>
+      </div>
+
+      <!-- Grid layout for desktop splitting -->
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6 items-start">
+        
+        <!-- Left Column: Categories / Quick stats (Sidebar on Desktop) -->
+        <div class="space-y-6 md:col-span-1">
+          <div class="bg-white rounded-3xl p-5 border border-slate-100 shadow-sm space-y-4">
+            <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest">Filter</h3>
+            <div class="flex md:flex-col gap-2 overflow-x-auto md:overflow-visible no-scrollbar pb-1 md:pb-0">
+              <button class="px-5 py-2.5 md:py-3 border border-primary text-primary font-bold text-xs rounded-xl shrink-0 transition-colors bg-white shadow-sm focus:outline-none text-left w-full flex justify-between items-center">
+                <span>All Notifications</span>
+                <span class="px-2 py-0.5 bg-blue-50 text-primary text-[10px] font-bold rounded-md hidden md:block">4</span>
+              </button>
+              <button onclick="alert('Filtering coming soon!')" class="px-5 py-2.5 md:py-3 border border-transparent text-slate-500 hover:text-slate-700 bg-white hover:bg-slate-50 font-semibold text-xs rounded-xl shrink-0 transition-colors focus:outline-none text-left w-full flex justify-between items-center">
+                <span>Unread</span>
+                <span class="px-2 py-0.5 bg-slate-50 text-slate-600 text-[10px] font-bold rounded-md hidden md:block">3</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Notifications List -->
+        <div class="md:col-span-3 space-y-4">
+          <!-- Notifications container -->
+          <div id="notifications-list" class="space-y-4">
+            <!-- Dynamic notifications will be loaded here -->
+          </div>
+
+          <!-- View All Notifications Button -->
+          <button onclick="alert('Viewing all notifications history.')" class="w-full py-4 bg-white hover:bg-slate-50 border border-blue-100 rounded-3xl flex items-center justify-between px-5 text-primary active:scale-[0.99] transition-all text-sm font-extrabold shadow-sm">
+            <div class="flex items-center gap-3">
+              <i data-lucide="list" class="w-5 h-5 text-primary"></i>
+              <span>View All Notifications</span>
+            </div>
+            <i data-lucide="chevron-right" class="w-5 h-5 text-primary"></i>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Space Filler -->
+    <div class="h-6"></div>
+
+    <!-- Mobile Bottom Navigation Bar (Visible on mobile only) -->
+    <div class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md bg-white border-t border-slate-100 px-6 py-2.5 flex justify-between items-center z-40 md:hidden">
+      
+      <!-- Home -->
+      <a href="dashboard.html" class="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-600 transition-colors">
+        <i data-lucide="home" class="w-5.5 h-5.5"></i>
+        <span class="text-[10px] font-bold">Home</span>
+      </a>
+
+      <!-- Packages -->
+      <a href="packages.html" class="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-600 transition-colors">
+        <i data-lucide="box" class="w-5.5 h-5.5"></i>
+        <span class="text-[10px] font-bold">Packages</span>
+      </a>
+
+      <!-- Usage -->
+      <a href="usage.html" class="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-600 transition-colors">
+        <i data-lucide="trending-up" class="w-5.5 h-5.5"></i>
+        <span class="text-[10px] font-bold">Usage</span>
+      </a>
+
+      <!-- Support -->
+      <a href="support.html" class="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-600 transition-colors">
+        <i data-lucide="help-circle" class="w-5.5 h-5.5"></i>
+        <span class="text-[10px] font-bold">Support</span>
+      </a>
+
+      <!-- Profile -->
+      <a href="profile.html" class="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-600 transition-colors">
+        <i data-lucide="user" class="w-5.5 h-5.5"></i>
+        <span class="text-[10px] font-bold">Profile</span>
+      </a>
+
+    </div>
+
+  </div>
+
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Default notifications
+    const defaultNotifications = [
+      {
+        title: 'Bill Reminder',
+        desc: 'Your bill of ৳ 600 is due on 28 May 2024',
+        time: 'Just now',
+        type: 'bill',
+        dot: 'blue'
+      },
+      {
+        title: 'Payment Successful',
+        desc: '৳ 500 payment successful via bKash',
+        time: '5m ago',
+        type: 'payment',
+        dot: 'green'
+      },
+      {
+        title: 'Offer',
+        desc: 'Get 10% discount on upgrade package',
+        time: '1h ago',
+        type: 'offer',
+        dot: 'orange'
+      },
+      {
+        title: 'Network Maintenance',
+        desc: 'Maintenance in Kushtia area on 25 May (2AM - 4AM)',
+        time: '2h ago',
+        type: 'maintenance',
+        dot: 'red'
+      }
+    ];
+
+    function loadNotifications() {
+      const container = document.getElementById('notifications-list');
+      let notifications = JSON.parse(localStorage.getItem('notifications')) || [];
+
+      if (notifications.length === 0) {
+        notifications = defaultNotifications;
+        localStorage.setItem('notifications', JSON.stringify(notifications));
+      }
+
+      container.innerHTML = ''; // Clear
+
+      notifications.forEach(notif => {
+        // Icon logic based on notification type
+        let iconHtml = '';
+        let dotColorClass = 'bg-blue-600';
+        if (notif.dot === 'green') dotColorClass = 'bg-green-600';
+        if (notif.dot === 'orange') dotColorClass = 'bg-orange-500';
+        if (notif.dot === 'red') dotColorClass = 'bg-red-600';
+
+        if (notif.type === 'bill') {
+          iconHtml = `
+            <div class="w-12 h-12 rounded-2xl bg-blue-50 text-primary flex items-center justify-center shrink-0">
+              <i data-lucide="file-text" class="w-6 h-6"></i>
+            </div>
+          `;
+        } else if (notif.type === 'payment') {
+          iconHtml = `
+            <div class="w-12 h-12 rounded-2xl bg-green-50 text-green-600 flex items-center justify-center shrink-0">
+              <i data-lucide="check-square" class="w-6 h-6"></i>
+            </div>
+          `;
+        } else if (notif.type === 'offer') {
+          iconHtml = `
+            <div class="w-12 h-12 rounded-2xl bg-orange-50 text-orange-600 flex items-center justify-center shrink-0">
+              <i data-lucide="tag" class="w-6 h-6"></i>
+            </div>
+          `;
+        } else if (notif.type === 'maintenance') {
+          iconHtml = `
+            <div class="w-12 h-12 rounded-2xl bg-red-50 text-red-600 flex items-center justify-center shrink-0">
+              <i data-lucide="radio" class="w-6 h-6"></i>
+            </div>
+          `;
+        } else {
+          iconHtml = `
+            <div class="w-12 h-12 rounded-2xl bg-blue-50 text-primary flex items-center justify-center shrink-0">
+              <i data-lucide="info" class="w-6 h-6"></i>
+            </div>
+          `;
+        }
+
+        const notifEl = document.createElement('div');
+        notifEl.className = 'bg-white rounded-3xl p-5 border border-slate-100 shadow-sm flex items-center justify-between gap-4';
+        notifEl.innerHTML = `
+          <div class="flex items-center gap-4">
+            ${iconHtml}
+            <div>
+              <h4 class="text-sm font-extrabold text-slate-800">${notif.title}</h4>
+              <p class="text-xs text-slate-400 font-semibold mt-1 leading-snug">${notif.desc}</p>
+            </div>
+          </div>
+          <div class="flex flex-col items-end shrink-0 justify-between h-12">
+            <span class="text-[9px] text-slate-400 font-extrabold whitespace-nowrap">${notif.time}</span>
+            <span class="w-2.5 h-2.5 rounded-full ${dotColorClass}"></span>
+          </div>
+        `;
+        container.appendChild(notifEl);
+      });
+      lucide.createIcons();
+    }
+
+    // Run on load
+    loadNotifications();
+  </script>
+
+  <!-- Demo navigator widget -->
+  <script src="demo-nav.js"></script>
+</body>
+</html>

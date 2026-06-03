@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Packages - 3LINK Networks</title>
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+          colors: {
+            primary: '#0047BA',
+            'primary-dark': '#00358A',
+            'brand-blue': '#00D2FF',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-100 font-sans text-slate-800 min-h-screen flex flex-col">
+
+  <!-- Desktop Top Header Navbar (Visible only on desktop) -->
+  <header class="hidden md:flex bg-primary text-white border-b border-primary-dark px-8 py-4 justify-between items-center shadow-md select-none shrink-0 z-40">
+    <div class="flex items-center gap-2">
+      <svg class="w-7 h-7 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+      </svg>
+      <div class="flex items-baseline gap-0.5">
+        <span class="text-xl font-extrabold text-brand-blue tracking-tight">3</span>
+        <span class="text-xl font-black text-white tracking-wide">LINK</span>
+        <span class="text-[9px] uppercase tracking-wider text-slate-300 font-bold ml-1.5">Portal</span>
+      </div>
+    </div>
+    
+    <!-- Center navigation -->
+    <nav class="flex items-center gap-6 text-sm font-extrabold text-white/80">
+      <a href="dashboard.html" class="hover:text-white transition-colors">Home</a>
+      <a href="packages.html" class="text-white border-b-2 border-white pb-0.5">Packages</a>
+      <a href="usage.html" class="hover:text-white transition-colors">Usage</a>
+      <a href="speedtest.html" class="hover:text-white transition-colors">Speed Test</a>
+      <a href="support.html" class="hover:text-white transition-colors">Support</a>
+      <a href="streaming.html" class="hover:text-white transition-colors">Streaming</a>
+      <a href="shop.html" class="hover:text-white transition-colors">Shop</a>
+      <a href="history.html" class="hover:text-white transition-colors">History</a>
+    </nav>
+    
+    <!-- Right side -->
+    <div class="flex items-center gap-6">
+      <a href="notifications.html" class="relative text-white/80 hover:text-white p-2">
+        <i data-lucide="bell" class="w-5 h-5"></i>
+        <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full"></span>
+      </a>
+      <a href="profile.html" class="flex items-center gap-2.5 text-white/80 hover:text-white">
+        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=80&h=80" class="w-8 h-8 rounded-full border border-white/20 object-cover">
+        <span class="text-xs font-bold">Rakib Hasan</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Responsive Container -->
+  <div class="w-full flex-grow flex flex-col bg-slate-50 min-h-screen pb-20 md:pb-6 relative">
+    
+    <!-- Top Blue Header Section (Mobile only) -->
+    <div class="bg-primary pt-4 pb-12 px-6 relative rounded-b-[32px] shadow-lg shadow-primary/10 md:hidden">
+      <!-- Status Bar -->
+      <div class="w-full flex justify-between items-center text-xs text-white/80 font-semibold mb-6">
+        <div>9:41</div>
+        <div class="flex items-center gap-1.5">
+          <i data-lucide="signal" class="w-3.5 h-3.5"></i>
+          <i data-lucide="wifi" class="w-3.5 h-3.5"></i>
+          <i data-lucide="battery" class="w-4 h-4"></i>
+        </div>
+      </div>
+
+      <!-- Navigation Row -->
+      <div class="flex items-center gap-4 text-white">
+        <a href="dashboard.html" class="p-1 hover:bg-white/10 rounded-lg transition-colors">
+          <i data-lucide="arrow-left" class="w-6 h-6"></i>
+        </a>
+        <h2 class="text-xl font-extrabold tracking-tight">My Packages</h2>
+      </div>
+    </div>
+
+    <!-- Main Content Container -->
+    <div class="max-w-6xl mx-auto w-full px-6 -mt-8 md:mt-8 z-10 flex-grow space-y-6">
+      
+      <!-- Desktop Header (Desktop only) -->
+      <div class="hidden md:flex justify-between items-center mb-2">
+        <div>
+          <h2 class="text-2xl font-black text-slate-900 tracking-tight">Internet Packages</h2>
+          <p class="text-sm text-slate-500 font-semibold mt-1">Review active subscriptions and upgrade or switch speeds instantly</p>
+        </div>
+        <a href="dashboard.html" class="flex items-center gap-2 px-4 py-2 border border-slate-200 hover:bg-slate-100 text-slate-650 rounded-xl text-xs font-bold transition-all duration-150">
+          <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Dashboard
+        </a>
+      </div>
+
+      <!-- Grid Layout for Desktop Split -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
+        
+        <!-- Left Panel: Current Package Card -->
+        <div class="space-y-6 md:col-span-1">
+          <div class="bg-white rounded-3xl p-6 shadow-md shadow-slate-100 space-y-4 border border-slate-100">
+            <div class="flex justify-between items-start">
+              <div>
+                <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block">Current Package</span>
+                <h2 class="text-xl font-extrabold text-slate-900 mt-1">Fiber Basic 50Mbps</h2>
+              </div>
+              <span class="text-sm font-black text-primary text-right block">৳ 600 <span class="text-[10px] text-slate-400 font-medium block">/ Month</span></span>
+            </div>
+            
+            <div class="border-t border-slate-100 pt-4 grid grid-cols-3 gap-2 text-center">
+              <div>
+                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Speed</span>
+                <span class="text-sm font-extrabold text-slate-800">50 Mbps</span>
+              </div>
+              <div>
+                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Valid Till</span>
+                <span class="text-xs font-extrabold text-slate-850">28 May 2024</span>
+              </div>
+              <div class="flex flex-col items-center">
+                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-0.5">Status</span>
+                <span class="px-2.5 py-0.5 bg-green-50 text-green-600 rounded-full text-xs font-bold border border-green-200">Active</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Panel: Available Packages -->
+        <div class="md:col-span-2 space-y-4">
+          <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest">Available Packages</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            
+            <!-- Package 30Mbps -->
+            <div class="bg-white rounded-3xl p-5 shadow-sm border border-slate-100 flex flex-col justify-between gap-4">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-blue-50 text-primary flex items-center justify-center shrink-0">
+                  <i data-lucide="circle-dot" class="w-6 h-6"></i>
+                </div>
+                <div>
+                  <h4 class="text-sm font-extrabold text-slate-800">Fiber Basic 30Mbps</h4>
+                  <p class="text-xs text-slate-400 font-medium mt-0.5">30 Mbps Speed</p>
+                </div>
+              </div>
+              <div class="flex justify-between items-center border-t border-slate-100 pt-3 mt-1">
+                <span class="text-xs font-black text-slate-900">৳ 500 / Month</span>
+                <button onclick="openDetails('Fiber Basic 30Mbps', '30 Mbps', 500, 'Basic home router usage, streaming on 2 devices, fast web browsing')" class="px-4 py-1.5 border border-primary text-primary hover:bg-primary hover:text-white font-bold rounded-xl text-xs transition-colors active:scale-95">
+                  View Details
+                </button>
+              </div>
+            </div>
+
+            <!-- Package 50Mbps -->
+            <div class="bg-white rounded-3xl p-5 shadow-sm border border-slate-100 flex flex-col justify-between gap-4">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-green-50 text-green-600 flex items-center justify-center shrink-0">
+                  <i data-lucide="circle-dot" class="w-6 h-6"></i>
+                </div>
+                <div>
+                  <h4 class="text-sm font-extrabold text-slate-800">Fiber Basic 50Mbps</h4>
+                  <p class="text-xs text-slate-400 font-medium mt-0.5">50 Mbps Speed</p>
+                </div>
+              </div>
+              <div class="flex justify-between items-center border-t border-slate-100 pt-3 mt-1">
+                <span class="text-xs font-black text-slate-900">৳ 600 / Month</span>
+                <button onclick="openDetails('Fiber Basic 50Mbps', '50 Mbps', 600, 'Standard package, full HD buffer-free streaming, fast downloads and online gaming support')" class="px-4 py-1.5 border border-primary text-primary hover:bg-primary hover:text-white font-bold rounded-xl text-xs transition-colors active:scale-95">
+                  View Details
+                </button>
+              </div>
+            </div>
+
+            <!-- Package 200Mbps -->
+            <div class="bg-white rounded-3xl p-5 shadow-sm border border-slate-100 flex flex-col justify-between gap-4">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-blue-50 text-primary flex items-center justify-center shrink-0">
+                  <i data-lucide="circle-dot" class="w-6 h-6"></i>
+                </div>
+                <div>
+                  <h4 class="text-sm font-extrabold text-slate-800">Fiber Premium 200Mbps</h4>
+                  <p class="text-xs text-slate-400 font-medium mt-0.5">200 Mbps Speed</p>
+                </div>
+              </div>
+              <div class="flex justify-between items-center border-t border-slate-100 pt-3 mt-1">
+                <span class="text-xs font-black text-slate-900">৳ 1000 / Month</span>
+                <button onclick="openDetails('Fiber Premium 200Mbps', '200 Mbps', 1000, 'Super fast fiber, 4K UHD streaming on multiple screens, large file downloads, best for smart home setups')" class="px-4 py-1.5 border border-primary text-primary hover:bg-primary hover:text-white font-bold rounded-xl text-xs transition-colors active:scale-95">
+                  View Details
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Space Filler -->
+    <div class="h-6"></div>
+
+    <!-- Details Modal -->
+    <div id="details-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm hidden flex items-end md:items-center justify-center">
+      <!-- Modal card sliding from bottom / centered on desktop -->
+      <div class="bg-white rounded-t-[32px] md:rounded-[32px] w-full max-w-md p-6 space-y-6 shadow-2xl animate-slide-up md:m-4">
+        <div class="flex justify-between items-center">
+          <h3 id="modal-title" class="text-lg font-extrabold text-slate-900">Fiber Basic 50Mbps</h3>
+          <button onclick="closeDetails()" class="text-slate-400 hover:text-slate-600 p-1 hover:bg-slate-50 rounded-full">
+            <i data-lucide="x" class="w-6 h-6"></i>
+          </button>
+        </div>
+        
+        <div class="space-y-4">
+          <div class="flex justify-between border-b border-slate-100 pb-3">
+            <span class="text-sm text-slate-500 font-medium">Monthly Charge</span>
+            <span id="modal-price" class="text-sm font-extrabold text-primary">৳ 600</span>
+          </div>
+          <div class="flex justify-between border-b border-slate-100 pb-3">
+            <span class="text-sm text-slate-500 font-medium">Speed Limit</span>
+            <span id="modal-speed" class="text-sm font-extrabold text-slate-800">50 Mbps</span>
+          </div>
+          <div class="flex justify-between border-b border-slate-100 pb-3">
+            <span class="text-sm text-slate-500 font-medium">Connection Type</span>
+            <span class="text-sm font-extrabold text-slate-800">FTTH (Fiber to the home)</span>
+          </div>
+          <div class="space-y-2">
+            <span class="text-sm text-slate-500 font-medium block">Package Details</span>
+            <p id="modal-desc" class="text-xs text-slate-600 leading-relaxed bg-slate-50 p-3 rounded-2xl border border-slate-100">
+              Standard package, full HD buffer-free streaming, fast downloads and online gaming support.
+            </p>
+          </div>
+        </div>
+
+        <button onclick="subscribePackage()" class="w-full py-4 bg-primary hover:bg-primary-dark text-white font-bold rounded-2xl text-center shadow-lg shadow-primary/20 active:scale-95 transition-all text-sm">
+          Activate Package
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Bottom Navigation Bar (Visible on mobile only) -->
+    <div class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md bg-white border-t border-slate-100 px-6 py-2.5 flex justify-between items-center z-40 md:hidden">
+      <a href="dashboard.html" class="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-650">
+        <i data-lucide="home" class="w-5.5 h-5.5"></i>
+        <span class="text-[10px] font-bold">Home</span>
+      </a>
+      <a href="packages.html" class="flex flex-col items-center gap-1 text-primary focus:outline-none animate-pulse">
+        <i data-lucide="box" class="w-5.5 h-5.5"></i>
+        <span class="text-[10px] font-extrabold">Packages</span>
+      </a>
+      <a href="usage.html" class="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-650">
+        <i data-lucide="trending-up" class="w-5.5 h-5.5"></i>
+        <span class="text-[10px] font-bold">Usage</span>
+      </a>
+      <a href="support.html" class="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-650">
+        <i data-lucide="help-circle" class="w-5.5 h-5.5"></i>
+        <span class="text-[10px] font-bold">Support</span>
+      </a>
+      <a href="profile.html" class="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-650">
+        <i data-lucide="user" class="w-5.5 h-5.5"></i>
+        <span class="text-[10px] font-bold">Profile</span>
+      </a>
+    </div>
+
+  </div>
+
+  </div>
+
+  <style>
+    @keyframes slideUp {
+      from { transform: translateY(100%); }
+      to { transform: translateY(0); }
+    }
+    .animate-slide-up {
+      animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+  </style>
+
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    let targetPackageName = "";
+
+    function openDetails(name, speed, price, desc) {
+      targetPackageName = name;
+      document.getElementById('modal-title').innerText = name;
+      document.getElementById('modal-price').innerText = "৳ " + price + " / Month";
+      document.getElementById('modal-speed').innerText = speed;
+      document.getElementById('modal-desc').innerText = desc;
+      
+      const modal = document.getElementById('details-modal');
+      modal.classList.remove('hidden');
+    }
+
+    function closeDetails() {
+      const modal = document.getElementById('details-modal');
+      modal.classList.add('hidden');
+    }
+
+    function subscribePackage() {
+      alert("Successfully requested subscription for: " + targetPackageName + ". Our support team will confirm shortly!");
+      closeDetails();
+    }
+  </script>
+
+  <!-- Demo navigator widget -->
+  <script src="demo-nav.js"></script>
+</body>
+</html>

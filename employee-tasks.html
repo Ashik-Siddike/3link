@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Tasks - 3LINK Networks</title>
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+          colors: {
+            primary: '#0047BA',
+            'primary-dark': '#00358A',
+            'brand-blue': '#00D2FF',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-100 font-sans text-slate-800 min-h-screen flex flex-col">
+
+  <!-- Desktop Top Header Navbar (Visible only on desktop - Employee Portal) -->
+  <header class="hidden md:flex bg-primary text-white border-b border-primary-dark px-8 py-4 justify-between items-center shadow-md select-none shrink-0 z-40">
+    <div class="flex items-center gap-2">
+      <svg class="w-7 h-7 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+      </svg>
+      <div class="flex items-baseline gap-0.5">
+        <span class="text-xl font-extrabold text-brand-blue tracking-tight">3</span>
+        <span class="text-xl font-black text-white tracking-wide">LINK</span>
+        <span class="text-[9px] uppercase tracking-wider text-slate-300 font-bold ml-1.5">Tech</span>
+      </div>
+    </div>
+    
+    <!-- Center navigation -->
+    <nav class="flex items-center gap-6 text-sm font-extrabold text-white/80">
+      <a href="employee-attendance.html" class="hover:text-white transition-colors">Attendance</a>
+      <a href="employee-tasks.html" class="text-white border-b-2 border-white pb-0.5">Tasks</a>
+      <a href="index.html" class="hover:text-white transition-colors">Portal Select</a>
+    </nav>
+    
+    <!-- Right side -->
+    <div class="flex items-center gap-6">
+      <a href="#" onclick="alert('No tech alerts.')" class="relative text-white/80 hover:text-white p-2">
+        <i data-lucide="bell" class="w-5 h-5"></i>
+        <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full"></span>
+      </a>
+      <div class="flex items-center gap-2.5 text-white/80">
+        <img src="https://images.unsplash.com/photo-1540569014015-19a7be504e3a?auto=format&fit=crop&q=80&w=80&h=80" class="w-8 h-8 rounded-full border border-white/20 object-cover">
+        <span class="text-xs font-bold">Jahid Hasan</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Responsive Screen Container -->
+  <div class="w-full flex-grow flex flex-col bg-slate-50 min-h-screen pb-20 md:pb-6 relative">
+    
+    <!-- Top Blue Header Section (Mobile only) -->
+    <div class="bg-primary pt-4 pb-12 px-6 relative rounded-b-[32px] shadow-lg shadow-primary/10 md:hidden">
+      <!-- Status Bar -->
+      <div class="w-full flex justify-between items-center text-xs text-white/80 font-semibold mb-6">
+        <div>9:41</div>
+        <div class="flex items-center gap-1.5">
+          <i data-lucide="signal" class="w-3.5 h-3.5"></i>
+          <i data-lucide="wifi" class="w-3.5 h-3.5"></i>
+          <i data-lucide="battery" class="w-4 h-4"></i>
+        </div>
+      </div>
+
+      <!-- Navigation Row -->
+      <div class="flex items-center gap-4 text-white">
+        <a href="employee-attendance.html" class="p-1 hover:bg-white/10 rounded-lg transition-colors">
+          <i data-lucide="arrow-left" class="w-6 h-6"></i>
+        </a>
+        <h2 class="text-xl font-extrabold tracking-tight">My Tasks</h2>
+      </div>
+    </div>
+
+    <!-- Main Content Wrapper -->
+    <div class="max-w-6xl mx-auto w-full px-6 -mt-8 md:mt-8 z-10 flex-grow flex flex-col gap-5">
+      
+      <!-- Desktop Header (Visible only on desktop) -->
+      <div class="hidden md:flex justify-between items-center mb-2">
+        <div>
+          <h2 class="text-2xl font-black text-slate-900 tracking-tight">My Task Queue</h2>
+          <p class="text-sm text-slate-500 font-semibold mt-1">Manage, filter, and execute assigned broadband field service tickets</p>
+        </div>
+      </div>
+
+      <!-- Grid layout for desktop splitting -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
+        
+        <!-- Left Column: Summary Card -->
+        <div class="space-y-6 md:col-span-1">
+          <!-- Today's Tasks Counter Card -->
+          <div class="bg-white rounded-3xl p-6 shadow-md border border-slate-100 flex justify-between items-center">
+            <div>
+              <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block">Today's Tasks</span>
+              <span class="text-4xl font-black text-slate-900 mt-1 block">5</span>
+            </div>
+            <div class="w-12 h-12 rounded-full bg-blue-50 text-primary flex items-center justify-center border-2 border-blue-100 shadow-sm shrink-0">
+              <i data-lucide="check" class="w-6 h-6 text-primary"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Categories Grid -->
+        <div class="md:col-span-2 space-y-4">
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            
+            <!-- Installation Task -->
+            <a href="employee-support.html" class="bg-white rounded-3xl p-5 border border-slate-100 shadow-sm flex items-center justify-between gap-3 hover:bg-slate-50 transition-colors group">
+              <div class="flex items-center gap-3.5">
+                <div class="w-11 h-11 bg-orange-50 text-orange-500 rounded-xl flex items-center justify-center shrink-0 border border-orange-200/50">
+                  <i data-lucide="award" class="w-5.5 h-5.5"></i>
+                </div>
+                <div>
+                  <h4 class="text-sm font-extrabold text-slate-800 leading-tight">Installation</h4>
+                  <p class="text-[10px] text-slate-400 font-semibold mt-1">1 Task</p>
+                </div>
+              </div>
+              <div class="text-slate-400 group-hover:text-primary group-hover:rotate-45 transition-all">
+                <i data-lucide="settings" class="w-5 h-5"></i>
+              </div>
+            </a>
+
+            <!-- Complaint Task -->
+            <a href="employee-ticket.html" class="bg-white rounded-3xl p-5 border border-slate-100 shadow-sm flex items-center justify-between gap-3 hover:bg-slate-50 transition-colors group">
+              <div class="flex items-center gap-3.5">
+                <div class="w-11 h-11 bg-pink-50 text-pink-500 rounded-xl flex items-center justify-center shrink-0 border border-pink-200/50">
+                  <span class="text-lg font-black tracking-tight">A</span>
+                </div>
+                <div>
+                  <h4 class="text-sm font-extrabold text-slate-800 leading-tight">Complaint</h4>
+                  <p class="text-[10px] text-slate-400 font-semibold mt-1">1 Task</p>
+                </div>
+              </div>
+              <div class="text-slate-400 group-hover:text-primary group-hover:rotate-45 transition-all">
+                <i data-lucide="settings" class="w-5 h-5"></i>
+              </div>
+            </a>
+
+            <!-- Maintenance Task -->
+            <a href="#" onclick="alert('Maintenance ticket details coming soon.')" class="bg-white rounded-3xl p-5 border border-slate-100 shadow-sm flex items-center justify-between gap-3 hover:bg-slate-50 transition-colors group">
+              <div class="flex items-center gap-3.5">
+                <div class="w-11 h-11 bg-purple-50 text-purple-500 rounded-xl flex items-center justify-center shrink-0 border border-purple-200/50">
+                  <i data-lucide="wrench" class="w-5.5 h-5.5"></i>
+                </div>
+                <div>
+                  <h4 class="text-sm font-extrabold text-slate-800 leading-tight">Maintenance</h4>
+                  <p class="text-[10px] text-slate-400 font-semibold mt-1">1 Task</p>
+                </div>
+              </div>
+              <div class="text-slate-400 group-hover:text-primary group-hover:rotate-45 transition-all">
+                <i data-lucide="settings" class="w-5 h-5"></i>
+              </div>
+            </a>
+
+            <!-- Verification Task -->
+            <a href="#" onclick="alert('Verification checklist coming soon.')" class="bg-white rounded-3xl p-5 border border-slate-100 shadow-sm flex items-center justify-between gap-3 hover:bg-slate-50 transition-colors group">
+              <div class="flex items-center gap-3.5">
+                <div class="w-11 h-11 bg-green-50 text-green-600 rounded-xl flex items-center justify-center shrink-0 border border-green-200/50">
+                  <i data-lucide="clipboard-check" class="w-5.5 h-5.5"></i>
+                </div>
+                <div>
+                  <h4 class="text-sm font-extrabold text-slate-800 leading-tight">Verification</h4>
+                  <p class="text-[10px] text-slate-400 font-semibold mt-1">2 Tasks</p>
+                </div>
+              </div>
+              <div class="text-slate-400 group-hover:text-primary group-hover:rotate-45 transition-all">
+                <i data-lucide="settings" class="w-5 h-5"></i>
+              </div>
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Space Filler -->
+    <div class="h-6"></div>
+
+    <!-- Employee Navigation Bar (Visible on mobile only) -->
+    <div class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md bg-white border-t border-slate-100 px-6 py-2.5 flex justify-between items-center z-40 md:hidden">
+      
+      <!-- Attendance / Home -->
+      <a href="employee-attendance.html" class="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-600 transition-colors">
+        <i data-lucide="check-square" class="w-5.5 h-5.5"></i>
+        <span class="text-[10px] font-bold">Attendance</span>
+      </a>
+
+      <!-- Tasks (Active) -->
+      <a href="employee-tasks.html" class="flex flex-col items-center gap-1 text-primary focus:outline-none">
+        <i data-lucide="clipboard-list" class="w-5.5 h-5.5"></i>
+        <span class="text-[10px] font-extrabold">Tasks</span>
+      </a>
+
+      <!-- Profile -->
+      <a href="index.html" class="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-600 transition-colors">
+        <i data-lucide="settings" class="w-5.5 h-5.5"></i>
+        <span class="text-[10px] font-bold">Portal Select</span>
+      </a>
+
+    </div>
+
+  </div>
+
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+  </script>
+
+  <!-- Demo navigator widget -->
+  <script src="demo-nav.js"></script>
+</body>
+</html>

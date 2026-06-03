@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ticket Details - 3LINK Networks</title>
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+          colors: {
+            primary: '#0047BA',
+            'primary-dark': '#00358A',
+            'brand-blue': '#00D2FF',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-100 font-sans text-slate-800 min-h-screen flex flex-col">
+
+  <!-- Desktop Top Header Navbar (Visible only on desktop - Employee Portal) -->
+  <header class="hidden md:flex bg-primary text-white border-b border-primary-dark px-8 py-4 justify-between items-center shadow-md select-none shrink-0 z-40">
+    <div class="flex items-center gap-2">
+      <svg class="w-7 h-7 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+      </svg>
+      <div class="flex items-baseline gap-0.5">
+        <span class="text-xl font-extrabold text-brand-blue tracking-tight">3</span>
+        <span class="text-xl font-black text-white tracking-wide">LINK</span>
+        <span class="text-[9px] uppercase tracking-wider text-slate-300 font-bold ml-1.5">Tech</span>
+      </div>
+    </div>
+    
+    <!-- Center navigation -->
+    <nav class="flex items-center gap-6 text-sm font-extrabold text-white/80">
+      <a href="employee-attendance.html" class="hover:text-white transition-colors">Attendance</a>
+      <a href="employee-tasks.html" class="text-white border-b-2 border-white pb-0.5">Tasks</a>
+      <a href="index.html" class="hover:text-white transition-colors">Portal Select</a>
+    </nav>
+    
+    <!-- Right side -->
+    <div class="flex items-center gap-6">
+      <a href="#" onclick="alert('No tech alerts.')" class="relative text-white/80 hover:text-white p-2">
+        <i data-lucide="bell" class="w-5 h-5"></i>
+        <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full"></span>
+      </a>
+      <div class="flex items-center gap-2.5 text-white/80">
+        <img src="https://images.unsplash.com/photo-1540569014015-19a7be504e3a?auto=format&fit=crop&q=80&w=80&h=80" class="w-8 h-8 rounded-full border border-white/20 object-cover">
+        <span class="text-xs font-bold">Jahid Hasan</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Responsive Screen Container -->
+  <div class="w-full flex-grow flex flex-col bg-slate-50 min-h-screen pb-20 md:pb-6 relative">
+    
+    <!-- Top Blue Header Section (Mobile only) -->
+    <div class="bg-primary pt-4 pb-12 px-6 relative rounded-b-[32px] shadow-lg shadow-primary/10 md:hidden">
+      <!-- Status Bar -->
+      <div class="w-full flex justify-between items-center text-xs text-white/80 font-semibold mb-6">
+        <div>9:41</div>
+        <div class="flex items-center gap-1.5">
+          <i data-lucide="signal" class="w-3.5 h-3.5"></i>
+          <i data-lucide="wifi" class="w-3.5 h-3.5"></i>
+          <i data-lucide="battery" class="w-4 h-4"></i>
+        </div>
+      </div>
+
+      <!-- Navigation Row -->
+      <div class="flex items-center gap-4 text-white">
+        <a href="employee-tasks.html" class="p-1 hover:bg-white/10 rounded-lg transition-colors">
+          <i data-lucide="arrow-left" class="w-6 h-6"></i>
+        </a>
+        <h2 class="text-xl font-extrabold tracking-tight">Ticket Details</h2>
+      </div>
+    </div>
+
+    <!-- Main Content Wrapper -->
+    <div class="max-w-6xl mx-auto w-full px-6 -mt-8 md:mt-8 z-10 flex-grow flex flex-col gap-4">
+      
+      <!-- Desktop Header (Visible only on desktop) -->
+      <div class="hidden md:flex justify-between items-center mb-2">
+        <div>
+          <h2 class="text-2xl font-black text-slate-900 tracking-tight">Complaint Ticket Detail</h2>
+          <p class="text-sm text-slate-500 font-semibold mt-1">Review the customer's detailed complaint, date logged, and update status</p>
+        </div>
+      </div>
+
+      <!-- Grid layout for desktop splitting -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
+        
+        <!-- Left Column: Status, Customer & Date -->
+        <div class="space-y-6 md:col-span-1">
+          <!-- Ticket Header Card -->
+          <div class="bg-white rounded-3xl p-5 border border-slate-100 shadow-md flex items-center justify-between gap-3 shrink-0">
+            <div class="flex items-center gap-3.5">
+              <div class="w-10 h-10 bg-blue-50 text-primary rounded-xl flex items-center justify-center shrink-0 border border-blue-100">
+                <i data-lucide="ticket" class="w-5.5 h-5.5"></i>
+              </div>
+              <span class="text-base font-extrabold text-slate-800">#TEC-10031</span>
+            </div>
+            <span id="ticket-badge" class="px-3.5 py-1 bg-orange-50 text-orange-600 border border-orange-200 rounded-full text-xs font-bold shrink-0">Open</span>
+          </div>
+
+          <!-- Customer Details Card -->
+          <div class="bg-white rounded-3xl p-5 border border-slate-100 shadow-sm space-y-4 shrink-0">
+            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Customer</span>
+            
+            <div class="flex items-center gap-3.5">
+              <!-- Customer Avatar -->
+              <img src="https://images.unsplash.com/photo-1540569014015-19a7be504e3a?auto=format&fit=crop&q=80&w=100&h=100" class="w-12 h-12 rounded-2xl object-cover border border-slate-100">
+              <div>
+                <h4 class="text-sm font-extrabold text-slate-800 leading-tight">Jahid Hasan</h4>
+                
+                <div class="flex items-center gap-2 mt-2 text-slate-500 text-xs font-semibold">
+                  <i data-lucide="phone" class="w-3.5 h-3.5 text-primary"></i>
+                  <span>018XX-XXXX</span>
+                </div>
+                
+                <div class="flex items-center gap-2 mt-1 text-slate-500 text-xs font-semibold">
+                  <i data-lucide="mail" class="w-3.5 h-3.5 text-primary"></i>
+                  <span class="truncate">j****@email.com</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Date Card -->
+          <div class="bg-white rounded-3xl p-5 border border-slate-100 shadow-sm space-y-2.5 shrink-0">
+            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Date Logged</span>
+            <div class="flex items-center gap-2 text-slate-700 text-xs font-extrabold">
+              <i data-lucide="calendar" class="w-4 h-4 text-primary"></i>
+              <span>21 May 2024, 09:30 AM</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Issue Details & Status Updater -->
+        <div class="md:col-span-2 space-y-6">
+          <!-- Issue Card -->
+          <div class="bg-white rounded-3xl p-6 border border-slate-100 shadow-sm space-y-3">
+            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Issue Details</span>
+            <h3 class="text-lg font-extrabold text-slate-800 leading-tight">Internet Not Working</h3>
+            <p class="text-sm text-slate-600 font-medium leading-relaxed mt-2">
+              Internet is not working since morning. Please solve it ASAP.
+            </p>
+          </div>
+
+          <!-- Status updates (Inline on Desktop, Triggered via modal on Mobile) -->
+          <div class="bg-white rounded-3xl p-6 border border-slate-100 shadow-sm space-y-4">
+            <h3 class="text-xs font-extrabold text-slate-400 uppercase tracking-wider">Update Ticket Status</h3>
+            <div class="grid grid-cols-3 gap-3">
+              <button onclick="changeStatus('Open', 'bg-orange-50 text-orange-600 border-orange-200')" class="py-3 px-4 border border-slate-200 hover:border-orange-500 hover:bg-orange-50 text-slate-800 font-extrabold rounded-2xl text-center active:scale-95 transition-all text-xs focus:outline-none">
+                Open
+              </button>
+              <button onclick="changeStatus('In Progress', 'bg-blue-50 text-blue-600 border-blue-200')" class="py-3 px-4 border border-slate-200 hover:border-blue-500 hover:bg-blue-50 text-slate-800 font-extrabold rounded-2xl text-center active:scale-95 transition-all text-xs focus:outline-none">
+                In Progress
+              </button>
+              <button onclick="changeStatus('Solved', 'bg-green-50 text-green-600 border-green-200')" class="py-3 px-4 border border-slate-200 hover:border-green-500 hover:bg-green-50 text-slate-800 font-extrabold rounded-2xl text-center active:scale-95 transition-all text-xs focus:outline-none">
+                Solved
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Update Status Button (Mobile only) -->
+    <div class="px-6 pb-6 pt-3 shrink-0 md:hidden">
+      <button onclick="openStatusModal()" class="w-full py-4 bg-green-600 hover:bg-green-700 text-white font-bold rounded-2xl flex items-center justify-center gap-2 shadow-lg shadow-green-600/20 active:scale-[0.99] transition-all text-sm uppercase tracking-wider focus:outline-none">
+        <i data-lucide="refresh-cw" class="w-5 h-5"></i>
+        Update Status
+      </button>
+    </div>
+
+    <!-- Status Picker Modal (Mobile only) -->
+    <div id="status-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm hidden flex items-end justify-center md:hidden">
+      <div class="bg-white rounded-t-[32px] w-full max-w-md p-6 space-y-6 shadow-2xl animate-slide-up">
+        <div class="flex justify-between items-center">
+          <h3 class="text-lg font-extrabold text-slate-900">Update Ticket Status</h3>
+          <button onclick="closeStatusModal()" class="text-slate-400 hover:text-slate-600 p-1 hover:bg-slate-50 rounded-full focus:outline-none">
+            <i data-lucide="x" class="w-6 h-6"></i>
+          </button>
+        </div>
+        
+        <div class="grid grid-cols-3 gap-3">
+          <!-- Status Options -->
+          <button onclick="changeStatus('Open', 'bg-orange-50 text-orange-600 border-orange-200')" class="py-3 px-4 border border-slate-200 hover:border-orange-500 hover:bg-orange-50 text-slate-800 font-extrabold rounded-2xl text-center active:scale-95 transition-all text-xs focus:outline-none">
+            Open
+          </button>
+          <button onclick="changeStatus('In Progress', 'bg-blue-50 text-blue-600 border-blue-200')" class="py-3 px-4 border border-slate-200 hover:border-blue-500 hover:bg-blue-50 text-slate-800 font-extrabold rounded-2xl text-center active:scale-95 transition-all text-xs focus:outline-none">
+            In Progress
+          </button>
+          <button onclick="changeStatus('Solved', 'bg-green-50 text-green-600 border-green-200')" class="py-3 px-4 border border-slate-200 hover:border-green-500 hover:bg-green-50 text-slate-800 font-extrabold rounded-2xl text-center active:scale-95 transition-all text-xs focus:outline-none">
+            Solved
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Employee Navigation Bar (Visible on mobile only) -->
+    <div class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md bg-white border-t border-slate-100 px-6 py-2.5 flex justify-between items-center z-40 md:hidden">
+      
+      <!-- Attendance / Home -->
+      <a href="employee-attendance.html" class="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-600 transition-colors">
+        <i data-lucide="check-square" class="w-5.5 h-5.5"></i>
+        <span class="text-[10px] font-bold">Attendance</span>
+      </a>
+
+      <!-- Tasks (Active) -->
+      <a href="employee-tasks.html" class="flex flex-col items-center gap-1 text-primary focus:outline-none">
+        <i data-lucide="clipboard-list" class="w-5.5 h-5.5"></i>
+        <span class="text-[10px] font-extrabold">Tasks</span>
+      </a>
+
+      <!-- Profile -->
+      <a href="index.html" class="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-600 transition-colors">
+        <i data-lucide="settings" class="w-5.5 h-5.5"></i>
+        <span class="text-[10px] font-bold">Portal Select</span>
+      </a>
+
+    </div>
+
+  </div>
+
+  <style>
+    @keyframes slideUp {
+      from { transform: translateY(100%); }
+      to { transform: translateY(0); }
+    }
+    .animate-slide-up {
+      animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    function openStatusModal() {
+      document.getElementById('status-modal').classList.remove('hidden');
+    }
+
+    function closeStatusModal() {
+      document.getElementById('status-modal').classList.add('hidden');
+    }
+
+    function changeStatus(status, badgeClasses) {
+      const badge = document.getElementById('ticket-badge');
+      badge.innerText = status;
+      badge.className = `px-3.5 py-1 border rounded-full text-xs font-bold shrink-0 ${badgeClasses}`;
+      
+      closeStatusModal();
+      alert("Ticket #TEC-10031 status has been updated to: " + status);
+    }
+  </script>
+
+  <!-- Demo navigator widget -->
+  <script src="demo-nav.js"></script>
+</body>
+</html>
