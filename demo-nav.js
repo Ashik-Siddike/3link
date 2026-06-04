@@ -148,6 +148,53 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Close button inside drawer
   document.getElementById('close-demo-drawer').addEventListener('click', toggleDrawer);
+
+  // Inject hamburger button next to any notification/bell icons dynamically
+  const bellIcons = document.querySelectorAll('[data-lucide="bell"]');
+  if (bellIcons.length > 0) {
+    // Hide the default floating trigger button on pages that have header bells
+    triggerBtn.style.display = 'none';
+
+    bellIcons.forEach(bell => {
+      // Find the closest anchor link or button wrapper
+      const bellLink = bell.closest('a') || bell.closest('button') || bell.parentElement;
+      if (!bellLink) return;
+
+      // Avoid double injection if script runs multiple times
+      if (bellLink.nextElementSibling && bellLink.nextElementSibling.classList.contains('demo-nav-trigger-injected')) {
+        return;
+      }
+
+      // Create hamburger button next to notification icon
+      const hamburgerBtn = document.createElement('button');
+      // Copy classes from bell link to look identical, adding margin
+      hamburgerBtn.className = bellLink.className + ' demo-nav-trigger-injected focus:outline-none ml-2 md:ml-3';
+      
+      // Ensure positioning doesn't clip
+      hamburgerBtn.style.position = 'relative';
+      hamburgerBtn.style.display = 'inline-flex';
+      hamburgerBtn.style.alignItems = 'center';
+      hamburgerBtn.style.justifyContent = 'center';
+
+      // Use a Lucide menu icon (three lines)
+      const iconClass = bell.getAttribute('class') || 'w-5 h-5';
+      hamburgerBtn.innerHTML = `<i data-lucide="menu" class="${iconClass}"></i>`;
+
+      // Assign toggle click handler
+      hamburgerBtn.onclick = (e) => {
+        e.preventDefault();
+        toggleDrawer();
+      };
+
+      // Insert it directly after the bell link
+      bellLink.parentNode.insertBefore(hamburgerBtn, bellLink.nextSibling);
+    });
+
+    // Reinitialize Lucide to render newly added icons
+    if (window.lucide) {
+      window.lucide.createIcons();
+    }
+  }
   
   // Style overlay/backdrop click close if needed
   const styleEl = document.createElement('style');
